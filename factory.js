@@ -63,15 +63,15 @@ function isBusDone(nbHarvester, nbBus, listBus) {
     //Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined,
       //{role: 'lazy_harvester', toGo: {x: Game.spawns.Spawn1.memory.lazy_harvester[0].toGo.x, y: Game.spawns.Spawn1.memory.lazy_harvester[0].toGo.y - 1}, toDrop: Game.spawns.Spawn1.memory.lazy_harvester[0].toDrop}); //160
   }
+  else if (listNewPos !== undefined && listNewPos.length > 0) {
+    Game.spawns.Spawn1.createCreep([Game.CARRY, Game.MOVE], undefined,
+      {role: 'bus', toGo: listNewPos[0].toGo, toDrop: listNewPos[0].toDrop}); //100
+  }
   else if (nbHarvester < 2) {
     Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined,
       {role: 'lazy_harvester', toGo: Game.spawns.Spawn1.memory.path[Game.spawns.Spawn1.memory.path.length - 2], toDrop: Game.spawns.Spawn1.memory.path[Game.spawns.Spawn1.memory.path.length - 3]}); //160
     //Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined,
     //  {role: 'lazy_harvester', toGo: Game.spawns.Spawn1.memory.lazy_harvester[1].toGo, toDrop: Game.spawns.Spawn1.memory.lazy_harvester[1].toDrop}); //160
-  }
-  else if (listNewPos !== undefined && listNewPos.length > 0) {
-    Game.spawns.Spawn1.createCreep([Game.CARRY, Game.MOVE], undefined,
-      {role: 'bus', toGo: listNewPos[0].toGo, toDrop: listNewPos[0].toDrop}); //100
   }
   /*else if (nbBus < path.length - 2) {
       Game.spawns.Spawn1.createCreep([Game.CARRY, Game.MOVE], undefined,
