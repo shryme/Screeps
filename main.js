@@ -61,11 +61,12 @@ if (healerNumbers < 2 && Game.spawns.Spawn1) {
 }
 
 if (guardNumbers < 2 && Game.spawns.Spawn1) {
-  Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.MOVE, Game.ATTACK], undefined, {role: 'guard'});
+  Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.ATTACK, Game.MOVE, Game.ATTACK], undefined, {role: 'guard'});
 }
 
-if (harvesterNumbers < 3 && Game.spawns.Spawn1) {
-  Game.spawns.Spawn1.createCreep([Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
+if (harvesterNumbers < 1 && Game.spawns.Spawn1) {
+  Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.CARRY, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
+  //Game.spawns.Spawn1.createCreep([Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
 }
 
 
