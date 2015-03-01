@@ -32,7 +32,7 @@ function isBusDone(nbHarvester, nbBus, listBus) {
     Game.spawns.Spawn1.memory.path = Game.spawns.Spawn1.room.findPath(Game.spawns.Spawn1.pos, source.pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
 
     var path = Game.spawns.Spawn1.memory.path;
-    for (var i = 0; i < path.length; i++) {
+    for (var i = 0; i < path.length - 1; i++) {
       if (i === 0)
         Game.spawns.Spawn1.memory.lazy_harvester = {toGo: path[path.length - 2], toDrop: path[path.length - 3]};
       else {
