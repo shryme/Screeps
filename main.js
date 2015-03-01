@@ -17,7 +17,7 @@ for(var name in Game.creeps) {
 
 		if(creep.energy == 0) {
 			creep.moveTo(Game.spawns.Spawn1);
-			if (Game.spawns.Spawn1.energy > 200)
+			if (Game.spawns.Spawn1.energy > 2000)
 			  Game.spawns.Spawn1.transferEnergy(creep);
 		}
 		else {
@@ -31,10 +31,10 @@ for(var name in Game.creeps) {
 		builderNumbers++;
 	}
 	else if(creep.memory.role == 'guard') {
-    var targets = creep.room.find(Game.HOSTILE_CREEPS);
-    if(targets.length) {
-      creep.moveTo(targets[0]);
-      creep.attack(targets[0]);
+    var target = creep.pos.findClosest(Game.MY_CREEPS);
+    if(target) {
+      creep.moveTo(target);
+      creep.attack(target);
     }
 
     guardNumbers++;
@@ -57,11 +57,11 @@ if (builderNumbers < 1 && Game.spawns.Spawn1) {
 }
 
 if (healerNumbers < 2 && Game.spawns.Spawn1) {
-  Game.spawns.Spawn1.createCreep([Game.HEAL, Game.HEAL, Game.MOVE, Game.MOVE, Game.MOVE], undefined, {role: 'healer'});
+  Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.HEAL, Game.MOVE, Game.MOVE], undefined, {role: 'healer'});
 }
 
 if (guardNumbers < 2 && Game.spawns.Spawn1) {
-  Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.ATTACK, Game.MOVE, Game.MOVE], undefined, {role: 'guard'});
+  Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.MOVE, Game.ATTACK], undefined, {role: 'guard'});
 }
 
 if (harvesterNumbers < 3 && Game.spawns.Spawn1) {
