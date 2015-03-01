@@ -11,7 +11,9 @@
   for (var i = 0; i < targets.length; i++) {
     var path = spawn.room.findPath(spawn.pos, targets[i].pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
     for (var j = 0; j < path.length - 1; j++) {
-      Game.rooms.sim.createConstructionSite(path[j].x, path[j].y, Game.STRUCTURE_ROAD);
+      var tile = Game.rooms.sim.lookAt(path[j].x, path[j].y);
+      if (tile.type !== structure)
+        Game.rooms.sim.createConstructionSite(path[j].x, path[j].y, Game.STRUCTURE_ROAD);
     }
   }
 
