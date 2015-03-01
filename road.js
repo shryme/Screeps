@@ -10,9 +10,10 @@
   var targets = spawn.room.find(Game.SOURCES_ACTIVE);
   for (var i = 0; i < targets.length; i++) {
     var path = spawn.room.findPath(spawn.pos, targets[i].pos);
-    for (var j = 0; j < path.length; j++) {
+    for (var j = 0; j < path.length - 1; j++) {
       Game.rooms.sim.createConstructionSite(path[j].x, path[j].y, Game.STRUCTURE_ROAD);
     }
+    break;
   }
 
 }
