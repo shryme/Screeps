@@ -40,15 +40,11 @@ for(var name in Game.creeps) {
     guardNumbers++;
   }
   else if (creep.memory.role == 'healer') {
-    var target = creep.pos.findClosest(Game.MY_CREEPS, {
-      filter: function(object) {
-        return object.hits < object.hitsMax;
-      }
-    });
+    var target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.hits < object.hitsMax;} });
 
     if (target) {
-      creep.moveTo(targets);
-      creep.heal(targets);
+      creep.moveTo(target);
+      creep.heal(target);
     }
 
     healerNumbers++;
