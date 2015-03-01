@@ -39,6 +39,15 @@ for(var name in Game.creeps) {
 
     guardNumbers++;
   }
+  else if(creep.memory.role == 'sniper') {
+    var target = creep.pos.findClosest(Game.HOSTILE_CREEPS);
+    if(target) {
+      creep.moveTo(target);
+      creep.rangedAttack(target);
+    }
+
+    guardNumbers++;
+  }
   else if (creep.memory.role == 'healer') {
     var target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.hits < object.hitsMax;} });
 
@@ -51,12 +60,16 @@ for(var name in Game.creeps) {
   }
 }
 
-if (builderNumbers < 1 && Game.spawns.Spawn1) {
+if (builderNumbers < 0 && Game.spawns.Spawn1) {
   Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'builder'});
   road.buildClosestRoom(Game.spawns.Spawn1);
 }
 
-if (healerNumbers < 2 && Game.spawns.Spawn1) {
+if (guardNumbers >= 2 && guardNumbers < 4 && Game.spawns.Spawn1) {
+  Game.spawns.Spawn1.createCreep([RANGED_ATTACK, RANGED_ATTACK, Game.MOVE, Game.MOVE], undefined, {role: 'sniper'});
+}
+
+if (healerNumbers < 1 && Game.spawns.Spawn1) {
   Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.HEAL, Game.MOVE, Game.MOVE], undefined, {role: 'healer'});
 }
 
@@ -64,7 +77,7 @@ if (guardNumbers < 2 && Game.spawns.Spawn1) {
   Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.ATTACK, Game.MOVE, Game.ATTACK], undefined, {role: 'guard'});
 }
 
-if (harvesterNumbers < 1 && Game.spawns.Spawn1) {
+if (harvesterNumbers < 2 && Game.spawns.Spawn1) {
   Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.CARRY, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
   //Game.spawns.Spawn1.createCreep([Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
 }
