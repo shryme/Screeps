@@ -13,6 +13,7 @@ factoryData.harvesterNumbers = 0;
 factoryData.builderNumbers = 0;
 factoryData.guardNumbers = 0;
 factoryData.healerNumbers = 0;
+factoryData.harvesterSmallestTimeToLive = undefined;
 
 for(var name in Game.creeps) {
   var creep = Game.creeps[name];
@@ -20,6 +21,9 @@ for(var name in Game.creeps) {
 	if(creep.memory.role == 'harvester') {
 		harvester(creep);
 		factoryData.harvesterNumbers++;
+
+		if (factoryData.harvesterSmallestTimeToLive === undefined || factoryData.harvesterSmallestTimeToLive > creep.ticksToLive)
+		  factoryData.harvesterSmallestTimeToLive = creep.ticksToLive;
 	}
 	else if(creep.memory.role == 'builder') {
 		builder(creep);
@@ -39,6 +43,9 @@ for(var name in Game.creeps) {
     factoryData.healerNumbers++;
   }
 }
+
+if (factoryData.harvesterSmallestTimeToLive === undefined)
+  factoryData.harvesterSmallestTimeToLive = 0;
 
 factory.createRobotz(factoryData);
 
