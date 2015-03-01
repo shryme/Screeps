@@ -35,8 +35,12 @@ function isBusDone(nbHarvester, nbBus, listBus) {
 
     var path = Game.spawns.Spawn1.memory.path;
     for (var i = 0; i < path.length - 1; i++) {
-      if (i === 0)
-        Game.spawns.Spawn1.memory.lazy_harvester = {toGo: path[path.length - 2], toDrop: path[path.length - 3]};
+      if (i === 0) {
+        Game.spawns.Spawn1.memory.lazy_harvester.push({toGo: path[path.length - 2], toDrop: path[path.length - 3]});
+        //TODO
+        Game.spawns.Spawn1.memory.lazy_harvester[0].toGo.y--;
+        Game.spawns.Spawn1.memory.lazy_harvester.push({toGo: path[path.length - 2], toDrop: path[path.length - 3]});
+      }
       else {
         var currentPath = {toGo: path[path.length - 2 - i], toDrop: path[path.length - 3 - i]}
         Game.spawns.Spawn1.memory.listBus.push(currentPath);
@@ -54,7 +58,11 @@ function isBusDone(nbHarvester, nbBus, listBus) {
 
   if (nbHarvester < 1) {
     Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined,
-      {role: 'lazy_harvester', toGo: Game.spawns.Spawn1.memory.path[Game.spawns.Spawn1.memory.path.length - 2], toDrop: Game.spawns.Spawn1.memory.path[Game.spawns.Spawn1.memory.path.length - 3]}); //160
+      {role: 'lazy_harvester', toGo: Game.spawns.Spawn1.memory.lazy_harvester[0].toGo, toDrop: Game.spawns.Spawn1.memory.lazy_harvester[0].toGo}); //160
+  }
+  else if (nbHarvester < 2) {
+    Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined,
+      {role: 'lazy_harvester', toGo: Game.spawns.Spawn1.memory.lazy_harvester[1].toGo, toDrop: Game.spawns.Spawn1.memory.lazy_harvester[1].toGo}); //160
   }
   else if (listNewPos !== undefined && listNewPos.length > 0) {
     Game.spawns.Spawn1.createCreep([Game.CARRY, Game.MOVE], undefined,
