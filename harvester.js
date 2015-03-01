@@ -12,7 +12,7 @@
 	  var source = creep.pos.findClosest(Game.SOURCES_ACTIVE);
 
 		creep.moveTo(source);
-		creep.harvest(sources);
+		creep.harvest(source);
 	}
 	else {
 		creep.moveTo(Game.spawns.Spawn1);
