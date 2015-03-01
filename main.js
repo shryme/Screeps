@@ -18,6 +18,7 @@ factoryData.healerNumbers = 0;
 factoryData.lazy_harvesterNumbers = 0;
 factoryData.busNumbers = 0;
 factoryData.harvesterSmallestTimeToLive = undefined;
+factoryData.listBus = new Array();
 
 for(var name in Game.creeps) {
   var creep = Game.creeps[name];
@@ -53,6 +54,7 @@ for(var name in Game.creeps) {
   else if (creep.memory.role == 'bus') {
     bus(creep);
     factoryData.busNumbers++;
+    factoryData.listBus.push(creep.memory);
   }
 }
 
