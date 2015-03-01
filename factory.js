@@ -55,7 +55,7 @@ module.exports = {
         if (data.guardNumbers < 2 && Game.spawns.Spawn1) {
           Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.ATTACK, Game.MOVE, Game.ATTACK], undefined, {role: 'guard'});
         }
-      }
+      //}
       /*else if (data.harvesterNumbers < 4 && Game.spawns.Spawn1) {
         Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.CARRY, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
       }
@@ -63,11 +63,6 @@ module.exports = {
       if (data.harvesterNumbers < 3 && Game.spawns.Spawn1) {
         Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.CARRY, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
       }*/
-    }
-    else {
-
-
-
     }
 
   }
