@@ -30,7 +30,7 @@ module.exports = {
         Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.ATTACK, Game.MOVE, Game.ATTACK], undefined, {role: 'guard'});
       }
     }
-    else {
+    else if (data.harvesterNumbers < 4 && Game.spawns.Spawn1) {
       Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.CARRY, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
     }
 
