@@ -36,6 +36,13 @@ for(var name in Game.creeps) {
       creep.moveTo(target);
       creep.attack(target);
     }
+    else {
+      var tm = creep.pos.findClosest(Game.HOSTILE_CREEPS);
+      if (tm) {
+        creep.moveTo(tm);
+        creep.attack(tm);
+      }
+    }
 
     guardNumbers++;
   }
@@ -49,11 +56,17 @@ for(var name in Game.creeps) {
     guardNumbers++;
   }
   else if (creep.memory.role == 'healer') {
-    var target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.hits < object.hitsMax;} });
+    var target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === 'guard'} });
 
     if (target) {
       creep.moveTo(target);
       creep.heal(target);
+    }
+    else {
+      var tm = creep.pos.findClosest(Game.MY_CREEPS);
+      if (tm) {
+        creep.moveTo(tm);
+      }
     }
 
     healerNumbers++;
@@ -70,7 +83,7 @@ if (guardNumbers >= 2 && guardNumbers < 4 && Game.spawns.Spawn1) {
 }
 
 if (healerNumbers >= 2 && Game.spawns.Spawn1) {
-  Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.HEAL, Game.MOVE, Game.MOVE], undefined, {role: 'healer'});
+  Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.ATTACK, Game.MOVE, Game.ATTACK], undefined, {role: 'guard'});
 }
 
 if (healerNumbers < 2 && Game.spawns.Spawn1) {
