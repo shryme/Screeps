@@ -43,13 +43,14 @@ for(var name in Game.creeps) {
     var target = creep.pos.findClosest(Game.MY_CREEPS, {
     filter: function(object) {
       return object.hits < object.hitsMax;
-    }
+    });
     if (target) {
       creep.moveTo(targets);
       creep.heal(targets);
     }
 
     healerNumbers++;
+  }
 });
 
 if (builderNumbers < 1 && Game.spawns.Spawn1) {
