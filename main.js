@@ -4,6 +4,7 @@ var road = require('road');
 var harvesterNumbers = 0;
 var builderNumbers = 0;
 var guardNumbers = 0;
+var healerNumbers = 0;
 
 for(var name in Game.creeps) {
   var creep = Game.creeps[name];
@@ -16,7 +17,8 @@ for(var name in Game.creeps) {
 
 		if(creep.energy == 0) {
 			creep.moveTo(Game.spawns.Spawn1);
-			Game.spawns.Spawn1.transferEnergy(creep);
+			if (Game.spawns.Spawn1.energy > 200)
+			  Game.spawns.Spawn1.transferEnergy(creep);
 		}
 		else {
 			var targets = creep.room.find(Game.CONSTRUCTION_SITES);
@@ -37,11 +39,32 @@ for(var name in Game.creeps) {
 
     guardNumbers++;
   }
+  else if (creep.memory.role == 'healer') {
+    var target = creep.pos.findClosest(Game.MY_CREEPS, {
+    filter: function(object) {
+      return object.hits < object.hitsMax;
+    }
+    if (target) {
+      creep.moveTo(targets);
+      creep.heal(targets);
+    }
+
+    healerNumbers++;
+});
+if(target) {
+    creep.moveTo(target);
+    creep.heal(target);
+}
+  }
 }
 
 if (builderNumbers < 1 && Game.spawns.Spawn1) {
   Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'builder'});
   road.buildClosestRoom(Game.spawns.Spawn1);
+}
+
+if (healerNumbers < 2 && Game.spawns.Spawn1) {
+  Game.spawns.Spawn1.createCreep([Game.HEAL, Game.HEAL, Game.MOVE, Game.MOVE, Game.MOVE], undefined, {role: 'healer'});
 }
 
 if (guardNumbers < 2 && Game.spawns.Spawn1) {
