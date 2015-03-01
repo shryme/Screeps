@@ -11,7 +11,7 @@
     for (var i = 0; i < targets.length; i++) {
       var path = spawn.room.findPath(spawn.pos, targets[i].pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
       for (var j = 0; j < path.length - 1; j++) {
-        var tiles = Game.rooms.sim.lookAt(path[j].x, path[j].y);
+        var tiles = spawn.room.lookAt(path[j].x, path[j].y);
         var valid = true;
         for (var k = 0; k < tiles.length; k++) {
           if (tiles[k].type === 'constructionSite') {
@@ -20,7 +20,7 @@
           }
         }
         if (valid)
-          Game.rooms.sim.createConstructionSite(path[j].x, path[j].y, Game.STRUCTURE_ROAD);
+          spawn.room.createConstructionSite(path[j].x, path[j].y, Game.STRUCTURE_ROAD);
       }
     }
 	},
@@ -38,7 +38,7 @@
         }
       }
       if (valid)
-        Game.rooms.sim.createConstructionSite(path[j].x, path[j].y, Game.STRUCTURE_ROAD);
+        spawn.room.createConstructionSite(path[j].x, path[j].y, Game.STRUCTURE_ROAD);
     }
 	}
 
