@@ -1,5 +1,5 @@
 
-module.exports = function (creep)
+module.exports = function (creep) {
   var target = creep.pos.findClosest(Game.HOSTILE_CREEPS, {filter: function(object) {return object.owner !== 'Source Keeper'} });
   if(target) {
     creep.moveTo(target);
