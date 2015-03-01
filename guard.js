@@ -1,6 +1,6 @@
 
-module.exports = function (creep) {
-  var target = creep.pos.findClosest(Game.HOSTILE_CREEPS);
+module.exports = function (creep)
+  var target = creep.pos.findClosest(Game.HOSTILE_CREEPS, {filter: function(object) {return object.owner !== 'Source Keeper'} });
   if(target) {
     creep.moveTo(target);
     creep.attack(target);
@@ -10,7 +10,7 @@ module.exports = function (creep) {
     if (Game.flags.Flag1 !== undefined)
       tm = Game.flags.Flag1
     else
-      tm = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === 'guard' && object.id !== creep.id && object.owner !== 'Source Keeper'} });
+      tm = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === 'guard' && object.id !== creep.id} });
     if (tm) {
       creep.moveTo(tm);
     }
