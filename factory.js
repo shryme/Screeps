@@ -15,7 +15,7 @@ function isBusDone(nbHarvester, nbBus) {
   else {
     if (nbBus < path.length - 2)
       Game.spawns.Spawn1.createCreep([Game.CARRY, Game.MOVE], undefined,
-      {role: 'bus', toGo: path[path.length - 1 - nbBus - 1 - 1], toDrop: path[path.length - 1 - nbBus - 1 - 1 - 1]});
+      {role: 'bus', toGo: path[path.length - 1 - nbBus - 1 - 1], toDrop: path[0]});
   }
 
   return false;
