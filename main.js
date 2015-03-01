@@ -3,20 +3,20 @@ var builder = require('builder');
 var guard = require('guard');
 var sniper = require('sniper');
 var healer = require('healer');
+var lazy_harvester = require('lazy_harvester');
+var bus = require('bus');
 
 var factory = require('factory');
 
 var road = require('road');
-
-debugger
-var testGlobal = 0;
-testGlobal = 5;
 
 var factoryData = {};
 factoryData.harvesterNumbers = 0;
 factoryData.builderNumbers = 0;
 factoryData.guardNumbers = 0;
 factoryData.healerNumbers = 0;
+factoryData.lazy_harvesterNumbers = 0;
+factoryData.busNumbers = 0;
 factoryData.harvesterSmallestTimeToLive = undefined;
 
 for(var name in Game.creeps) {
@@ -45,6 +45,14 @@ for(var name in Game.creeps) {
   else if (creep.memory.role == 'healer') {
     healer(creep);
     factoryData.healerNumbers++;
+  }
+  else if (creep.memory.role == 'lazy_harvester') {
+    lazy_harvester(creep);
+    factoryData.lazy_harvesterNumbers++;
+  }
+  else if (creep.memory.role == 'bus') {
+    bus(creep);
+    factoryData.busNumbers++;
   }
 }
 

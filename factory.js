@@ -1,12 +1,32 @@
 
-var doneWithBus = false;
 var listBus;
+function isBusDone(nbHarvester, nbBus) {
+  var source = Game.spawns.Spawn1.pos.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
+  var path = Game.spawns.Spawn1.room.findPath(Game.spawns.Spawn1.pos, source.pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
+
+  this.path = path;
+
+  /*for (var roomPos in path) {
+
+  }*/
+
+  if (nbHarvester < 0) {
+    Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
+  }
+  else {
+    if (nbBus < path.length - 1)
+      Game.spawns.Spawn1.createCreep([Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
+  }
+
+  return false;
+
+}
 
 module.exports = {
 
   createRobotz: function(data) {
 
-    if (doneWithBus) {
+    if (isBusDone(data.lazy_harvesterNumbers, data.busNumbers)) {
       if (data.harvesterSmallestTimeToLive > 150) {
         if (data.builderNumbers < 0 && Game.spawns.Spawn1) {
           Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'builder'});
@@ -43,10 +63,7 @@ module.exports = {
       }
     }
     else {
-      var source = Game.spawns.Spawn1.pos.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
-      var path = Game.spawns.Spawn1.room.findPath(Game.spawns.Spawn1.pos, source.pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
 
-      this.path = path;
 
 
     }
