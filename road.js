@@ -5,8 +5,8 @@
  * You can import it from another modules like this:
  * var mod = require('harvester'); // -> 'a thing'
  */
- module.exports = function (spawn) {
-  buildAllRoads: function() {
+ module.exports = {
+  buildAllRoads: function(spawn) {
     var targets = spawn.room.find(Game.SOURCES_ACTIVE);
     for (var i = 0; i < targets.length; i++) {
       var path = spawn.room.findPath(spawn.pos, targets[i].pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
