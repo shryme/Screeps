@@ -63,7 +63,7 @@ function isBusDone(nbHarvester, nbBus, listBus) {
       {role: 'bus', toGo: path[path.length - 3 - nbBus], toDrop: path[path.length - 4 - nbBus]}); //100
   }*/
   else {
-    if (Game.spawns.Spawn1.energy > 340 + 160 + 100 * path.length - 2)
+    if (Game.spawns.Spawn1.energy > 340 + 160 + 100 * Game.spawns.Spawn1.memory.path.length - 2)
       return true;
   }
 
