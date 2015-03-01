@@ -4,6 +4,13 @@ module.exports = function (creep) {
     creep.moveTo(creep.memory.toGo);
   }
   else {
-    creep.transferEnergy(creep.memory.toDrop);
+    var found = creep.room.lookForAt('creep', creep.memory.toDrop);
+    if (found)
+      creep.transferEnergy(found);
+    else {
+      found = creep.room.lookForAt('structure', creep.memory.toDrop);
+      if (found)
+        creep.transferEnergy(found);
+    }
   }
 }
