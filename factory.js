@@ -9,7 +9,7 @@ function isBusDone(nbHarvester, nbBus) {
   }*/
 
   if (nbHarvester < 1) {
-    Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined,
+    Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined,
       {role: 'lazy_harvester', toGo: path[path.length - 2], toDrop: path[path.length - 3]});
   }
   else if (nbBus < path.length - 2) {
@@ -28,7 +28,7 @@ module.exports = {
   createRobotz: function(data) {
 
     if (isBusDone(data.lazy_harvesterNumbers, data.busNumbers)) {
-      if (data.harvesterSmallestTimeToLive > 150) {
+      //if (data.harvesterSmallestTimeToLive > 150) {
         if (data.builderNumbers < 0 && Game.spawns.Spawn1) {
           Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'builder'});
           road.buildClosestRoom(Game.spawns.Spawn1);
@@ -53,15 +53,14 @@ module.exports = {
         if (data.guardNumbers < 2 && Game.spawns.Spawn1) {
           Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.ATTACK, Game.MOVE, Game.ATTACK], undefined, {role: 'guard'});
         }
-      }
-      else if (data.harvesterNumbers < 4 && Game.spawns.Spawn1) {
+      //}
+      /*else if (data.harvesterNumbers < 4 && Game.spawns.Spawn1) {
         Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.CARRY, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
       }
 
       if (data.harvesterNumbers < 3 && Game.spawns.Spawn1) {
         Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.CARRY, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
-        //Game.spawns.Spawn1.createCreep([Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
-      }
+      }*/
     }
     else {
 
