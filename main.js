@@ -4,6 +4,8 @@ var guard = require('guard');
 var sniper = require('sniper');
 var healer = require('healer');
 
+var healer = require('factory');
+
 var road = require('road');
 
 var factoryData = {};
