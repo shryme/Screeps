@@ -87,7 +87,7 @@ module.exports = {
         if (data.healerNumbers < data.guardNumbers / 2)
           Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.MOVE, Game.HEAL], undefined, {role: 'healer'});
         else
-          Game.spawns.Spawn1.createCreep([Game.MOVE, Game.MOVE, Game.ATTACK, Game.ATTACK, Game.ATTACK], undefined, {role: 'guard'});
+          Game.spawns.Spawn1.createCreep([Game.MOVE, Game.ATTACK, Game.ATTACK, Game.ATTACK, Game.ATTACK], undefined, {role: 'guard'});
 
         if (data.guardNumbers < 2 && Game.spawns.Spawn1) {
           Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.ATTACK, Game.MOVE, Game.ATTACK], undefined, {role: 'guard'});
