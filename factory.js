@@ -1,5 +1,5 @@
 
-var firstTime = true;
+var firstTime = false;
 var listBus;
 
 module.exports = {

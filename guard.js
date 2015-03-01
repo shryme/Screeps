@@ -10,7 +10,7 @@ module.exports = function (creep) {
     if (Game.flags.Flag1 !== undefined)
       tm = Game.flags.Flag1
     else
-      tm = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === 'guard' && object.id !== creep.id} });
+      tm = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === 'guard' && object.id !== creep.id && object.owner !== 'Source Keeper'} });
     if (tm) {
       creep.moveTo(tm);
     }
