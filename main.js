@@ -31,7 +31,7 @@ for(var name in Game.creeps) {
 		builderNumbers++;
 	}
 	else if(creep.memory.role == 'guard') {
-    var target = creep.pos.findClosest(Game.MY_CREEPS);
+    var target = creep.pos.findClosest(Game.HOSTILE_CREEPS);
     if(target) {
       creep.moveTo(target);
       creep.attack(target);
