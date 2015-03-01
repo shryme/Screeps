@@ -54,7 +54,7 @@ function isBusDone(nbHarvester, nbBus, listBus) {
     Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined,
       {role: 'lazy_harvester', toGo: Game.spawns.Spawn1.memory.path[Game.spawns.Spawn1.memory.path.length - 2], toDrop: Game.spawns.Spawn1.memory.path[Game.spawns.Spawn1.memory.path.length - 3]}); //160
   }
-  else if (listNewPos.length > 0) {
+  else if (listNewPos !== undefined && listNewPos.length > 0) {
     Game.spawns.Spawn1.createCreep([Game.CARRY, Game.MOVE], undefined,
       {role: 'bus', toGo: listNewPos[0].toGo, toDrop: listNewPos[0].toDrop}); //100
   }
