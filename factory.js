@@ -35,7 +35,7 @@ function isBusDone(nbHarvester, nbBus, listBus) {
       if (i === 0)
         Game.spawns.Spawn1.memory.lazy_harvester = {toGo: path[path.length - 2], toDrop: path[path.length - 3]};
       else {
-        currentPath = {toGo: path[path.length - 3 - i], toDrop: path[path.length - 4 - i]}
+        var currentPath = {toGo: path[path.length - 3 - i], toDrop: path[path.length - 4 - i]}
         Game.spawns.Spawn1.memory.listBus.push(currentPath);
       }
 
