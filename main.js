@@ -51,12 +51,6 @@ for(var name in Game.creeps) {
 
     healerNumbers++;
 });
-if(target) {
-    creep.moveTo(target);
-    creep.heal(target);
-}
-  }
-}
 
 if (builderNumbers < 1 && Game.spawns.Spawn1) {
   Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'builder'});
