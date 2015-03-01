@@ -9,8 +9,12 @@ module.exports = function (creep) {
       creep.transferEnergy(found);
     else {
       found = creep.room.lookForAt('structure', creep.memory.toDrop);
-      if (found)
+      if (found) {
         creep.transferEnergy(found);
+      }
+      else if (Game.spawns.Spawn1.pos.x === creep.memory.toDrop.x && Game.spawns.Spawn1.pos.y === creep.memory.toDrop.y) {
+        creep.transferEnergy(Game.spawns.Spawn1);
+      }
     }
   }
 }
