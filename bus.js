@@ -12,7 +12,7 @@ module.exports = function (creep) {
       if (found) {
         creep.transferEnergy(found);
       }
-      else if (Game.spawns.Spawn1.pos.x === creep.memory.toDrop.x && Game.spawns.Spawn1.pos.y === creep.memory.toDrop.y) {
+      else if (creep.memory.toDrop === undefined) {
         creep.transferEnergy(Game.spawns.Spawn1);
       }
     }
