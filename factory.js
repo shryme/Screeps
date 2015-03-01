@@ -22,6 +22,8 @@ function getListOfOpenPos(currentList) {
       newList.push(listToFill[i]);
 
   }
+
+  return newList;
 }
 
 function isBusDone(nbHarvester, nbBus, listBus) {
