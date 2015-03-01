@@ -41,9 +41,11 @@ for(var name in Game.creeps) {
   }
   else if (creep.memory.role == 'healer') {
     var target = creep.pos.findClosest(Game.MY_CREEPS, {
-    filter: function(object) {
-      return object.hits < object.hitsMax;
-    });
+      filter: function(object) {
+        return object.hits < object.hitsMax;
+      }
+    );
+
     if (target) {
       creep.moveTo(targets);
       creep.heal(targets);
