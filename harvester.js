@@ -5,7 +5,7 @@
  * You can import it from another modules like this:
  * var mod = require('harvester'); // -> 'a thing'
  */
- module.exports = function (creep) {
+module.exports = function (creep) {
 
 	if(creep.energy < creep.energyCapacity) {
 
