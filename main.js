@@ -66,7 +66,7 @@ if (builderNumbers < 0 && Game.spawns.Spawn1) {
 }
 
 if (guardNumbers >= 2 && guardNumbers < 4 && Game.spawns.Spawn1) {
-  Game.spawns.Spawn1.createCreep([RANGED_ATTACK, RANGED_ATTACK, Game.MOVE, Game.MOVE], undefined, {role: 'sniper'});
+  Game.spawns.Spawn1.createCreep([Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.MOVE, Game.MOVE], undefined, {role: 'sniper'});
 }
 
 if (healerNumbers < 1 && Game.spawns.Spawn1) {

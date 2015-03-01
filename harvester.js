@@ -9,7 +9,7 @@
 
 	if(creep.energy < creep.energyCapacity) {
 
-	  var source = creep.pos.findClosest(Game.SOURCES);
+	  var source = Game.spawns.Spawn1.pos.findClosest(Game.SOURCES_ACTIVE);
 
 		creep.moveTo(source);
 		creep.harvest(source);
