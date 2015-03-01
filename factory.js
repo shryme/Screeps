@@ -30,7 +30,7 @@ module.exports = {
   createRobotz: function(data) {
 
     if (isBusDone(data.lazy_harvesterNumbers, data.busNumbers)) {
-      if (data.harvesterSmallestTimeToLive > 150) {
+      //if (data.harvesterSmallestTimeToLive > 150) {
         if (data.builderNumbers < 0 && Game.spawns.Spawn1) {
           Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'builder'});
           road.buildClosestRoom(Game.spawns.Spawn1);
