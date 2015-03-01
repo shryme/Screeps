@@ -44,7 +44,7 @@ for(var name in Game.creeps) {
       filter: function(object) {
         return object.hits < object.hitsMax;
       }
-    );
+    });
 
     if (target) {
       creep.moveTo(targets);
