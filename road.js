@@ -27,7 +27,7 @@
 	buildClosestRoom: function(spawn) {
     var target = spawn.pos.findClosest(Game.SOURCES_ACTIVE);
 
-    var path = spawn.room.findPath(spawn.pos, targets.pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
+    var path = spawn.room.findPath(spawn.pos, target.pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
     for (var j = 0; j < path.length - 1; j++) {
       var tiles = Game.rooms.sim.lookAt(path[j].x, path[j].y);
       var valid = true;
