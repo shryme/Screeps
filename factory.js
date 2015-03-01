@@ -8,7 +8,7 @@ function isBusDone(nbHarvester, nbBus) {
 
   }*/
 
-  if (nbHarvester < 0) {
+  if (nbHarvester < 1) {
     Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'lazy_harvester'});
   }
   else {
