@@ -69,7 +69,7 @@ if (guardNumbers >= 2 && guardNumbers < 4 && Game.spawns.Spawn1) {
   //Game.spawns.Spawn1.createCreep([Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.MOVE, Game.MOVE], undefined, {role: 'sniper'});
 }
 
-if (healerNumbers >= 2 Game.spawns.Spawn1) {
+if (healerNumbers >= 2 && Game.spawns.Spawn1) {
   Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.HEAL, Game.MOVE, Game.MOVE], undefined, {role: 'healer'});
 }
 
