@@ -4,8 +4,6 @@ function isBusDone(nbHarvester, nbBus) {
   var source = Game.spawns.Spawn1.pos.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
   var path = Game.spawns.Spawn1.room.findPath(Game.spawns.Spawn1.pos, source.pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
 
-  this.path = path;
-
   /*for (var roomPos in path) {
 
   }*/
