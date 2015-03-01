@@ -55,7 +55,7 @@ for(var name in Game.creeps) {
     guardNumbers++;
   }
   else if (creep.memory.role == 'healer') {
-    var target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory < object.hitsMax;} });
+    var target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.hits < object.hitsMax;} });
 
     if (target) {
       creep.moveTo(target);
@@ -82,7 +82,7 @@ if (guardNumbers >= 2 && guardNumbers < 4 && Game.spawns.Spawn1) {
 }
 
 if (healerNumbers >= 2 && Game.spawns.Spawn1) {
-  Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.ATTACK, Game.MOVE, Game.ATTACK], undefined, {role: 'guard'});
+  Game.spawns.Spawn1.createCreep([Game.ATTACK, Game.ATTACK, Game.ATTACK, Game.ATTACK, Game.MOVE], undefined, {role: 'guard'});
 }
 
 if (healerNumbers < 2 && Game.spawns.Spawn1) {
