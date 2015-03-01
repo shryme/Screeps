@@ -14,7 +14,7 @@
       var tiles = Game.rooms.sim.lookAt(path[j].x, path[j].y);
       var valid = true;
       for (var k = 0; k < tiles.length; k++) {
-        if (tiles[k].type === structure) {
+        if (tiles[k].type === 'structure') {
           valid = false;
           k = tiles.length + 1;
         }
