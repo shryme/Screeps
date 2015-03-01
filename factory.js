@@ -9,11 +9,11 @@ function isBusDone(nbHarvester, nbBus) {
   }*/
 
   if (nbHarvester < 0) {
-    Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
+    Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'lazy_harvester'});
   }
   else {
     if (nbBus < path.length - 1)
-      Game.spawns.Spawn1.createCreep([Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
+      Game.spawns.Spawn1.createCreep([Game.CARRY, Game.MOVE], undefined, {role: 'bus'});
   }
 
   return false;
