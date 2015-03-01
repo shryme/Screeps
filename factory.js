@@ -9,8 +9,7 @@ function isBusDone(nbHarvester, nbBus) {
   }*/
 
   if (nbHarvester < 1) {
-    var name = Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'lazy_harvester'});
-    Game.creeps[name].memory.togo = path[path.length - 1];
+    Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'lazy_harvester', togo: path[path.length - 1]});
   }
   else {
     if (nbBus < path.length - 2)
