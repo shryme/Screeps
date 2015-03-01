@@ -40,5 +40,5 @@ for(var name in Game.creeps) {
   }
 }
 
-factory.createRobotz();
+factory.createRobotz(factoryData);
 
