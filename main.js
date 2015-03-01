@@ -49,7 +49,7 @@ if (builderNumbers < 3 && Game.spawns.Spawn1) {
 }
 
 if (harvesterNumbers < 5 && Game.spawns.Spawn1) {
-  Game.spawns.Spawn1.createCreep([Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'haverster'});
+  Game.spawns.Spawn1.createCreep([Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'harvester'});
 }
 
 
