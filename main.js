@@ -8,6 +8,10 @@ var factory = require('factory');
 
 var road = require('road');
 
+debugger
+var testGlobal = 0;
+testGlobal = 5;
+
 var factoryData = {};
 factoryData.harvesterNumbers = 0;
 factoryData.builderNumbers = 0;

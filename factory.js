@@ -7,8 +7,6 @@ module.exports = {
   createRobotz: function(data) {
 
     if (doneWithBus) {
-      debugger;
-      this.path;
       if (data.harvesterSmallestTimeToLive > 150) {
         if (data.builderNumbers < 0 && Game.spawns.Spawn1) {
           Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'builder'});
@@ -45,7 +43,6 @@ module.exports = {
       }
     }
     else {
-      doneWithBus = true;
       var source = Game.spawns.Spawn1.pos.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
       var path = Game.spawns.Spawn1.room.findPath(Game.spawns.Spawn1.pos, source.pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
 
