@@ -13,8 +13,12 @@ module.exports = {
       //Game.spawns.Spawn1.createCreep([Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.MOVE, Game.MOVE], undefined, {role: 'sniper'});
     }
 
+    if (data.guardNumbers >= 6 && Game.spawns.Spawn1) {
+      Game.spawns.Spawn1.createCreep([Game.MOVE, Game.ATTACK, Game.ATTACK, Game.ATTACK, Game.ATTACK], undefined, {role: 'guard'});
+    }
+
     if (data.healerNumbers >= 2 && Game.spawns.Spawn1) {
-      Game.spawns.Spawn1.createCreep([Game.ATTACK, Game.ATTACK, Game.ATTACK, Game.ATTACK, Game.MOVE], undefined, {role: 'guard'});
+      Game.spawns.Spawn1.createCreep([Game.MOVE, Game.MOVE, Game.ATTACK, Game.ATTACK, Game.ATTACK], undefined, {role: 'guard'});
     }
 
     if (data.healerNumbers < 2 && Game.spawns.Spawn1) {
