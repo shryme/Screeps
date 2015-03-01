@@ -7,7 +7,10 @@ module.exports = function (creep) {
   else {
     var source = Game.spawns.Spawn1.pos.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
     creep.harvest(source);
-    creep.transferEnergy(creep.memory.toDrop);
+    //creep.transferEnergy(creep.memory.toDrop);
+
+    var found = creep.room.lookForAt('creep', creep.memory.toDrop);
+    creep.transferEnergy(found);
   }
 
 }
