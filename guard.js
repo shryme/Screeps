@@ -1,7 +1,14 @@
 
 module.exports = function (creep) {
   var target = creep.pos.findClosest(Game.HOSTILE_CREEPS, {filter: function(object) {return object.owner.username !== 'Source Keeper'} });
-  creep.rangedMassAttack();
+
+  if (creep.getActiveBodyparts(Game.RANGED_ATTACK) > 0) {
+    var targets = creep.pos.findInRange(Game.HOSTILE_CREEPS, 3);
+    if(targets.length > 0) {
+      creep.rangedMassAttack();
+    }
+  }
+
   if(target) {
     creep.moveTo(target);
     creep.attack(target);
