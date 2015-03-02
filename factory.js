@@ -21,7 +21,7 @@ module.exports = {
 
         if (data.healerNumbers < 2 && Game.spawns.Spawn1) {
           Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.TOUGH, Game.HEAL, Game.HEAL, Game.HEAL, Game.MOVE, Game.MOVE], undefined, {role: 'healer'});
-        },
+        }
 
         var listConstructions = Game.spawns.Spawn1.room.find(Game.CONSTRUCTION_SITES);
         if (listConstructions.length > 0 && data.builderNumbers === 0) {
