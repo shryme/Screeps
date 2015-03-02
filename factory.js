@@ -20,7 +20,7 @@ module.exports = {
         }
 
         if (data.guardNumbers < 2 && Game.spawns.Spawn1) {
-          Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.ATTACK, Game.MOVE, Game.ATTACK], undefined, {role: 'guard'});
+          Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.ATTACK, Game.MOVE, Game.ATTACK, Game.RANGED_ATTACK], undefined, {role: 'guard'});
         }
     }
 
