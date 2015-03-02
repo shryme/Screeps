@@ -35,6 +35,7 @@ function isBusDone(nbHarvester, nbBus, listBus) {
 
   if (Game.spawns.Spawn1.memory.listBus === undefined) {
     Game.spawns.Spawn1.memory.listBus = new Array();
+    Game.spawns.Spawn1.memory.listHarvester = new Array();
     var source = Game.spawns.Spawn1.pos.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
     Game.spawns.Spawn1.memory.path = Game.spawns.Spawn1.room.findPath(Game.spawns.Spawn1.pos, source.pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
 
