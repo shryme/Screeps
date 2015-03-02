@@ -1,5 +1,5 @@
 
-var lazyHarvesterFactory = require('lazy_harvesterF_fctory');
+var lazyHarvesterFactory = require('lazy_harvester_factory');
 
 module.exports = {
 
