@@ -82,7 +82,7 @@ module.exports = {
     else {
       if (Game.spawns.Spawn1.energy > 800 + 160 + 100 * Game.spawns.Spawn1.memory.path.length - 2)
         return true;
-      var targets = creep.pos.findInRange(Game.HOSTILE_CREEPS, 8);
+      var targets = Game.spawns.Spawn1.pos.findInRange(Game.HOSTILE_CREEPS, 8);
       if (targets)
         return true;
     }
