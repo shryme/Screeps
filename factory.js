@@ -1,15 +1,15 @@
 
-var listBus;
-var listHarvester;
+var listAllBus;
+var listAllHarvester;
 
 function getListOfOpenPos(type, currentList) {
   var newList = new Array();
 
   var listToFill;
   if (type === 'bus')
-    listToFill = listBus;
+    listToFill = listAllBus;
   else
-    listToFill = listHarvester;
+    listToFill = listAllHarvester;
 
   for (var i = 0; i < listToFill.length; i++) {
 
@@ -34,21 +34,21 @@ function getListOfOpenPos(type, currentList) {
 
 function isBusDone(nbHarvester, nbBus, listBus, listHarvester) {
 
-  if (listBus === undefined) {
-    listBus = new Array();
-    listHarvester = new Array();
+  if (listAllBus === undefined) {
+    listAllBus = new Array();
+    listAllHarvester = new Array();
     var source = Game.spawns.Spawn1.pos.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
     Game.spawns.Spawn1.memory.path = Game.spawns.Spawn1.room.findPath(Game.spawns.Spawn1.pos, source.pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
 
     var path = Game.spawns.Spawn1.memory.path;
     for (var i = 0; i < path.length - 1; i++) {
       if (i === 0) {
-        listHarvester.push({toGo: {x: path[path.length - 2].x, y: path[path.length - 2].y - 1}, toDrop: path[path.length - 3]});
-        listHarvester.push({toGo: path[path.length - 2], toDrop: path[path.length - 3]});
+        listAllHarvester.push({toGo: {x: path[path.length - 2].x, y: path[path.length - 2].y - 1}, toDrop: path[path.length - 3]});
+        listAllHarvester.push({toGo: path[path.length - 2], toDrop: path[path.length - 3]});
       }
       else {
         var currentPath = {toGo: path[path.length - 2 - i], toDrop: path[path.length - 3 - i]}
-        listBus.push(currentPath);
+        listAllBus.push(currentPath);
       }
 
     }
