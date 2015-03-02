@@ -34,6 +34,7 @@ function getListOfOpenPos(type, currentList) {
 
 function isBusDone(nbHarvester, nbBus, listBus, listHarvester) {
 
+  //Calculate the path to take to go to the nearest source
   if (listAllBus === undefined) {
     listAllBus = new Array();
     listAllHarvester = new Array();
@@ -58,10 +59,12 @@ function isBusDone(nbHarvester, nbBus, listBus, listHarvester) {
 
   }
 
+  //Gets the positions that are currently open and that needs to be filled
   var listNewPos = getListOfOpenPos('bus', listBus);
   var listNewHarvesterPos = getListOfOpenPos('harverster', listHarvester);
 
-  if (nbHarvester < 1) {
+  //First create the first harvester, then all the transporters, the the rest of the harvester
+  if (nbHarvester < 1 && listNewHarvesterPos.length > 0) {
     Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined,
       {role: 'lazy_harvester', toGo: listNewHarvesterPos[0].toGo, toDrop: listNewHarvesterPos[0].toDrop}); //160
   }
@@ -69,7 +72,7 @@ function isBusDone(nbHarvester, nbBus, listBus, listHarvester) {
     Game.spawns.Spawn1.createCreep([Game.CARRY, Game.MOVE], undefined,
       {role: 'bus', toGo: listNewPos[0].toGo, toDrop: listNewPos[0].toDrop}); //100
   }
-  else if (nbHarvester < 2) {
+  else if (listNewHarvesterPos.length > 0) {
     Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined,
       {role: 'lazy_harvester', toGo: listNewHarvesterPos[0].toGo, toDrop: listNewHarvesterPos[0].toDrop}); //160
   }
