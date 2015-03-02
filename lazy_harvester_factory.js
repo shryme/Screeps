@@ -80,7 +80,7 @@ module.exports = {
         {role: 'lazy_harvester', toGo: listNewHarvesterPos[0].toGo, toDrop: listNewHarvesterPos[0].toDrop}); //160
     }
     else {
-      if (Game.spawns.Spawn1.energy > 340 + 160 + 100 * Game.spawns.Spawn1.memory.path.length - 2)
+      if (Game.spawns.Spawn1.energy > 800 + 160 + 100 * Game.spawns.Spawn1.memory.path.length - 2)
         return true;
     }
 
