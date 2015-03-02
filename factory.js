@@ -31,7 +31,7 @@ function getListOfOpenPos(type, currentList) {
   return newList;
 }
 
-function isBusDone(nbHarvester, nbBus, listBus) {
+function isBusDone(nbHarvester, nbBus, listBus, listHarvester) {
 
   if (Game.spawns.Spawn1.memory.listBus === undefined) {
     Game.spawns.Spawn1.memory.listBus = new Array();
@@ -56,7 +56,7 @@ function isBusDone(nbHarvester, nbBus, listBus) {
   }
 
   var listNewPos = getListOfOpenPos('bus', listBus);
-  var listNewHarvesterPos = getListOfOpenPos('harverster', listBus);
+  var listNewHarvesterPos = getListOfOpenPos('harverster', listHarvester);
 
   /*for (var roomPos in path) {
 
@@ -96,7 +96,7 @@ module.exports = {
 
   createRobotz: function(data) {
 
-    if (isBusDone(data.lazy_harvesterNumbers, data.busNumbers, data.listBus)) {
+    if (isBusDone(data.lazy_harvesterNumbers, data.busNumbers, data.listBus, data.listHarvester)) {
       //if (data.harvesterSmallestTimeToLive > 150) {
         /*if (data.builderNumbers < 0 && Game.spawns.Spawn1) {
           Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined, {role: 'builder'});
