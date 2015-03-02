@@ -25,7 +25,7 @@ module.exports = {
 
         var listConstructions = Game.spawns.Spawn1.room.find(Game.CONSTRUCTION_SITES);
         if (listConstructions.length > 0 && data.builderNumbers === 0) {
-          Game.spawns.Spawn1.createCreep([Game.CARRY, Game.ATTACK, Game.CARRY, Game.WORK, Game.MOVE], undefined, {role: 'builder'});
+          Game.spawns.Spawn1.createCreep([Game.CARRY, Game.WORK, Game.CARRY, Game.WORK, Game.MOVE], undefined, {role: 'builder'});
         }
 
         if (data.guardNumbers < 2 && Game.spawns.Spawn1) {
