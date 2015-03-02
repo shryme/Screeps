@@ -1,6 +1,6 @@
 
-var listAllBus;
-var listAllHarvester;
+var listAllBus = Game.spawns.Spawn1.room.memory.listAllBus;
+var listAllHarvester = Game.spawns.Spawn1.room.memory.listAllHarvester;
 
 function getListOfOpenPos(type, currentList) {
   var newList = new Array();
@@ -52,6 +52,9 @@ function isBusDone(nbHarvester, nbBus, listBus, listHarvester) {
       }
 
     }
+
+    Game.spawns.Spawn1.room.memory.listAllBus = listAllBus;
+    Game.spawns.Spawn1.room.memory.listAllHarvester = listAllHarvester;
 
   }
 
