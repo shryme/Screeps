@@ -1,6 +1,10 @@
 
 module.exports = function (creep) {
-  var target = creep.pos.findClosest(Game.HOSTILE_CREEPS, {filter: function(object) {return object.owner.username !== 'Source Keeper'} });
+
+
+  var targets = creep.pos.findInRange(Game.HOSTILE_CREEPS, 8);
+
+  var target = creep.pos.findClosest(targets, {filter: function(object) {return object.owner.username !== 'Source Keeper'} });
 
   if (creep.getActiveBodyparts(Game.RANGED_ATTACK) > 0) {
     var targets = creep.pos.findInRange(Game.HOSTILE_CREEPS, 3);
