@@ -40,6 +40,18 @@
       if (valid)
         spawn.room.createConstructionSite(path[j].x, path[j].y, Game.STRUCTURE_ROAD);
     }
+	},
+	buildWallBetweenFlags: function(flag1, flag2) {
+
+	  var path = flag1.room.findPath(flag1.pos, flag2.pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
+
+	  for (var i = 0; i < path.length; i++) {
+	    flag1.room.createConstructionSite(path[i].x, path[i].y, Game.STRUCTURE_WALL);
+	  }
+
+	  flag1.remove();
+	  flag2.remove();
+
 	}
 
 
