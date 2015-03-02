@@ -65,6 +65,6 @@ if (factoryData.harvesterSmallestTimeToLive === undefined)
 
 factory.createRobotz(factoryData);
 
-if (Game.flags.Road1 !== undefined && Game.flags.Road2)
-  road.buildWallBetweenFlags(Game.flags.Road1, Game.flags.Road2);
+if (Game.flags.Wall1 !== undefined && Game.flags.Wall2)
+  road.buildWallBetweenFlags(Game.flags.Wall1, Game.flags.Wall2);
 

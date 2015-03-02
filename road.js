@@ -45,6 +45,7 @@
 
 	  var path = flag1.room.findPath(flag1.pos, flag2.pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
 
+	  flag1.room.createConstructionSite(flag1.x, flag1.y, Game.STRUCTURE_WALL);
 	  for (var i = 0; i < path.length; i++) {
 	    flag1.room.createConstructionSite(path[i].x, path[i].y, Game.STRUCTURE_WALL);
 	  }
