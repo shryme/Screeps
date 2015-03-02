@@ -23,7 +23,7 @@ module.exports = {
           Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.MOVE, Game.HEAL], undefined, {role: 'healer'});
         }
 
-        var listConstructions = creep.room.find(Game.CONSTRUCTION_SITES);
+        var listConstructions = Game.spawns.Spawn1.room.find(Game.CONSTRUCTION_SITES);
         if (listConstructions.length > 0 && data.builderNumbers === 0) {
           Game.spawns.Spawn1.createCreep([Game.CARRY, Game.ATTACK, Game.CARRY, Game.WORK, Game.MOVE], undefined, {role: 'builder'});
         }
