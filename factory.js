@@ -12,16 +12,16 @@ module.exports = {
         }*/
 
         if (data.guardNumbers >= 6 && Game.spawns.Spawn1) {
-          Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.ATTACK, Game.ATTACK, Game.RANGED_ATTACK, Game.MOVE, Game.ATTACK], undefined, {role: 'guard'});
+          Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.ATTACK, Game.ATTACK, Game.ATTACK, Game.MOVE, Game.ATTACK], undefined, {role: 'guard'});
         }
 
         if (data.healerNumbers >= 2 && data.guardNumbers < 6 && Game.spawns.Spawn1) {
           Game.spawns.Spawn1.createCreep([Game.MOVE, Game.MOVE, Game.ATTACK, Game.ATTACK, Game.ATTACK], undefined, {role: 'guard'});
         }
 
-        if (data.healerNumbers < 3 && Game.spawns.Spawn1) {
-          Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.MOVE, Game.MOVE, Game.HEAL], undefined, {role: 'healer'});
-        }
+        if (data.healerNumbers < 2 && Game.spawns.Spawn1) {
+          Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.TOUGH, Game.HEAL, Game.HEAL, Game.HEAL, Game.MOVE, Game.MOVE], undefined, {role: 'healer'});
+        },
 
         var listConstructions = Game.spawns.Spawn1.room.find(Game.CONSTRUCTION_SITES);
         if (listConstructions.length > 0 && data.builderNumbers === 0) {
