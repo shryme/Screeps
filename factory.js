@@ -21,6 +21,14 @@ module.exports = {
           Game.spawns.Spawn1.createCreep([Game.MOVE, Game.MOVE, Game.ATTACK, Game.ATTACK, Game.ATTACK], undefined, {role: 'guard'});
         }
 
+        var extNumbers = Game.spawns.Spawn1.room.find(Game.STRUCTURE_EXTENSION).length;
+        if (extNumbers > 0) {
+          var pieces = [Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.ATTACK, Game.ATTACK, Game.ATTACK, Game.MOVE, Game.MOVE];
+          for (var i = 0; i < extNumbers.length; i++)
+            pieces.push(Game.ATTACK);
+          Game.spawns.Spawn1.createCreep(pieces, undefined, {role: 'guard'});
+        }
+
         if (data.healerNumbers < 2 && Game.spawns.Spawn1) {
           Game.spawns.Spawn1.createCreep([Game.TOUGH, Game.TOUGH, Game.HEAL, Game.HEAL, Game.HEAL, Game.MOVE, Game.MOVE], undefined, {role: 'healer'});
         }
