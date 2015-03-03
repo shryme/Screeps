@@ -24,7 +24,7 @@ module.exports = {
         var extNumbers = Game.spawns.Spawn1.room.find(Game.MY_STRUCTURES, {filter: function(object) {return object.structureType === Game.STRUCTURE_EXTENSION && object.energy === object.energyCapacity} }).length;
         if (extNumbers > 0) {
           var pieces = [Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.ATTACK, Game.ATTACK, Game.ATTACK, Game.MOVE, Game.MOVE];
-          for (var i = 0; i < extNumbers.length; i++)
+          for (var i = 0; i < extNumbers; i++)
             pieces.push(Game.ATTACK);
           Game.spawns.Spawn1.createCreep(pieces, undefined, {role: 'guard'});
         }
