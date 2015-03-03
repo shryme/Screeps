@@ -12,7 +12,7 @@ module.exports = function (creep) {
 			creep.build(targets[0]);
 		}
 		else {
-		  var target = creep.pos.findClosest(Game.STRUCTURE_EXTENSION, {filter: function(object) {return object.energy < object.energyCapacity} });
+		  var target = creep.pos.findClosest(Game.STRUCTURE_EXTENSION, {filter: function(object) {return object.energy < 200} });
 		  if (target) {
 		    creep.moveTo(target);
 		    creep.transferEnergy(target);
