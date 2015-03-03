@@ -66,7 +66,7 @@ module.exports = {
     var listNewPos = getListOfOpenPos('bus', listBus);
     var listNewHarvesterPos = getListOfOpenPos('harverster', listHarvester);
 
-    //First create the first harvester, then all the transporters, the the rest of the harvester
+    //First create the first harvester, then all the transporters, then the rest of the harvester
     if (nbHarvester < 1 && listNewHarvesterPos.length > 0) {
       Game.spawns.Spawn1.createCreep([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE], undefined,
         {role: 'lazy_harvester', toGo: listNewHarvesterPos[0].toGo, toDrop: listNewHarvesterPos[0].toDrop}); //160
@@ -80,11 +80,7 @@ module.exports = {
         {role: 'lazy_harvester', toGo: listNewHarvesterPos[0].toGo, toDrop: listNewHarvesterPos[0].toDrop}); //160
     }
     else {
-      if (Game.spawns.Spawn1.energy > 800 + 160 + 100 * Game.spawns.Spawn1.memory.path.length - 2)
-        return true;
-      var targets = Game.spawns.Spawn1.pos.findInRange(Game.HOSTILE_CREEPS, 8);
-      if (targets.length > 0)
-        return true;
+      return true
     }
 
     return false;
