@@ -24,7 +24,7 @@ function canSpawnUnit(arr) {
   var unit = getCost(arr);
   var harvester = getCost([Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE]);
   var bus = getCost([Game.CARRY, Game.MOVE]);
-  var allBus = bus * Game.spawns.Spawn1.memory.path.length - 2;
+  var allBus = bus * (Game.spawns.Spawn1.memory.path.length - 2);
 
   if (Game.spawns.Spawn1.energy > unit + harvester + allBus) {
     return true;
