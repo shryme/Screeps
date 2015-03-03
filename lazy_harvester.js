@@ -1,4 +1,4 @@
-var Creep = require("Creep");
+var Creep = require("creep");
 
 function LazyHarvester(creep) {
   Creep.call(this, creep);
