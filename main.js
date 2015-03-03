@@ -3,7 +3,7 @@ var builder = require('builder');
 var guard = require('guard');
 var sniper = require('sniper');
 var healer = require('healer');
-var lazy_harvester = require('lazy_harvester');
+var LazyHarvester = require('lazy_harvester');
 var bus = require('bus');
 
 var factory = require('factory');
