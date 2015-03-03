@@ -72,3 +72,6 @@ if (Game.flags.Wall1 !== undefined && Game.flags.Wall2)
 if (Game.flags.Ext)
   road.buildExtensionFlags(Game.flags.Ext);
 
+/*
+As in, create a module that explicitly sets every memory object you use to blank, then in your main loop, call that module if Game.time == 1.
+*/
