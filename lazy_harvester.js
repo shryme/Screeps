@@ -15,7 +15,7 @@ LazyHarvester.prototype.tick = function() {
   }
   else {
     var source = Game.spawns.Spawn1.pos.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
-    creep.harvest(source);
+    this.creep.harvest(source);
     //creep.transferEnergy(creep.memory.toDrop);
 
     var found = this.creep.room.lookForAt('creep', this.creep.memory.toDrop);
