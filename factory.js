@@ -2,19 +2,19 @@
 var lazyHarvesterFactory = require('lazy_harvester_factory');
 
 var prices = {};
-prices.MOVE = 50;
-prices.WORK = 20;
-prices.CARRY = 50;
-prices.ATTACK = 80;
-prices.RANGED_ATTACK = 150;
-prices.HEAL = 200;
-prices.TOUGH = 20;
+prices.move = 50;
+prices.work = 20;
+prices.carry = 50;
+prices.attack = 80;
+prices.ranged_attack = 150;
+prices.heal = 200;
+prices.tough = 20;
 
 
 function getCost(arr) {
   var total = 0;
-  for (var module in arr) {
-    total += prices[module];
+  for (var i = 0; i < arr.length; i++) {
+    total += prices[arr[i]];
   }
 
   return total;
