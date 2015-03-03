@@ -6,17 +6,17 @@ module.exports = function (creep) {
 		  Game.spawns.Spawn1.transferEnergy(creep);
 	}
 	else {
-		var targets = creep.room.find(Game.CONSTRUCTION_SITES);
-		if(targets.length) {
-			creep.moveTo(targets[0]);
-			creep.build(targets[0]);
-		}
+	  var target = creep.pos.findClosest(Game.MY_STRUCTURES, {filter: function(object) {return object.structureType === Game.STRUCTURE_EXTENSION && object.energy < object.energyCapacity} });
+	  if (target) {
+	    creep.moveTo(target);
+	    creep.transferEnergy(target);
+	  }
 		else {
-		  var target = creep.pos.findClosest(Game.MY_STRUCTURES, {filter: function(object) {return object.structureType === Game.STRUCTURE_EXTENSION && object.energy < object.energyCapacity} });
-		  if (target) {
-		    creep.moveTo(target);
-		    creep.transferEnergy(target);
-		  }
+		  var targets = creep.room.find(Game.CONSTRUCTION_SITES);
+  		if(targets.length) {
+  			creep.moveTo(targets[0]);
+  			creep.build(targets[0]);
+  		}
 		}
 	}
 }
