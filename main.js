@@ -3,7 +3,7 @@ var builder = require('builder');
 var guard = require('guard');
 var sniper = require('sniper');
 var healer = require('healer');
-var LazyHarvester = require('lazy_harvester');
+var lazy_harvester = require('lazy_harvester');
 var bus = require('bus');
 
 var factory = require('factory');
@@ -49,8 +49,7 @@ for(var name in Game.creeps) {
     factoryData.healerNumbers++;
   }
   else if (creep.memory.role == 'lazy_harvester') {
-    var lh = new LazyHarvester(creep);
-    lh.tick();
+    lazy_harvester(creep);
     factoryData.lazy_harvesterNumbers++;
     factoryData.listHarvester.push(creep.memory);
   }
