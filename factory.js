@@ -34,36 +34,36 @@ function canSpawnUnit(arr) {
 
 function spawnWeakGuard() {
   var modules = [Game.TOUGH, Game.MOVE, Game.ATTACK, Game.MOVE, Game.ATTACK, Game.RANGED_ATTACK];
-  if (canSpawnUnite(modules))
+  if (canSpawnUnit(modules))
     Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'guard'});
 }
 
 function spawnWeakBuilder() {
   var modules = [Game.CARRY, Game.CARRY, Game.WORK, Game.WORK, Game.MOVE];
-  if (canSpawnUnite(modules))
+  if (canSpawnUnit(modules))
     Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'builder'});
 }
 
 function spawnWeakHealer() {
   var modules = [Game.HEAL, Game.HEAL, Game.HEAL, Game.MOVE, Game.MOVE];
-  if (canSpawnUnite(modules))
+  if (canSpawnUnit(modules))
     Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'healer'});
 }
 
 function spawnExtensionGuard(pieces) {
-  if (canSpawnUnite(pieces))
+  if (canSpawnUnit(pieces))
     Game.spawns.Spawn1.createCreep(pieces, undefined, {role: 'guard'});
 }
 
 function spawnToughGuard() {
   var modules = [Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.MOVE, Game.MOVE, Game.ATTACK, Game.ATTACK, Game.ATTACK];
-  if (canSpawnUnite(modules))
+  if (canSpawnUnit(modules))
     Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'guard'});
 }
 
 function spawnMediumGuard() {
   var modules = [Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.ATTACK, Game.ATTACK, Game.ATTACK, Game.MOVE, Game.ATTACK];
-  if (canSpawnUnite(modules))
+  if (canSpawnUnit(modules))
     Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'guard'});
 }
 
