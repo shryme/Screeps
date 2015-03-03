@@ -49,7 +49,8 @@ for(var name in Game.creeps) {
     factoryData.healerNumbers++;
   }
   else if (creep.memory.role == 'lazy_harvester') {
-    lazy_harvester(creep);
+    var lh = new LazyHarvester(creep);
+    lh.tick();
     factoryData.lazy_harvesterNumbers++;
     factoryData.listHarvester.push(creep.memory);
   }
