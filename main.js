@@ -5,6 +5,8 @@ var sniper = require('sniper');
 var healer = require('healer');
 var lazy_harvester = require('lazy_harvester');
 var bus = require('bus');
+var sourceDestroyer = require('sourceDestroyer');
+var sourceHealer = require('sourceHealer');
 
 var factory = require('factory');
 
@@ -20,6 +22,7 @@ factoryData.busNumbers = 0;
 factoryData.harvesterSmallestTimeToLive = undefined;
 factoryData.listHarvester = new Array();
 factoryData.listBus = new Array();
+factoryData.listSourceHealer = new Array();
 
 for(var name in Game.creeps) {
   var creep = Game.creeps[name];
@@ -31,32 +34,41 @@ for(var name in Game.creeps) {
 		if (factoryData.harvesterSmallestTimeToLive === undefined || factoryData.harvesterSmallestTimeToLive > creep.ticksToLive)
 		  factoryData.harvesterSmallestTimeToLive = creep.ticksToLive;
 	}
-	else if(creep.memory.role == 'builder') {
+	else if(creep.memory.role === 'builder') {
 		builder(creep);
 		factoryData.builderNumbers++;
 	}
-	else if(creep.memory.role == 'guard') {
+	else if(creep.memory.role === 'guard') {
     guard(creep);
     factoryData.guardNumbers++;
   }
-  else if(creep.memory.role == 'sniper') {
+  else if(creep.memory.role === 'sniper') {
 
     sniper(creep);
     factoryData.guardNumbers++;
   }
-  else if (creep.memory.role == 'healer') {
+  else if (creep.memory.role === 'healer') {
     healer(creep);
     factoryData.healerNumbers++;
   }
-  else if (creep.memory.role == 'lazy_harvester') {
+  else if (creep.memory.role === 'lazy_harvester') {
     lazy_harvester(creep);
     factoryData.lazy_harvesterNumbers++;
     factoryData.listHarvester.push(creep.memory);
   }
-  else if (creep.memory.role == 'bus') {
+  else if (creep.memory.role === 'bus') {
     bus(creep);
     factoryData.busNumbers++;
     factoryData.listBus.push(creep.memory);
+  }
+  else if (creep.memory.role === 'source_destroyer') {
+    sourceDestroyer(creep);
+    factoryData.sourceDestroyerNumbers++;
+  }
+  else if (creep.memory.role === 'source_healer') {
+    sourceHealer(creep);
+    factoryData.sourceHealerNumbers++;
+    factoryData.listSourceHealer.push(creep.memory);
   }
 }
 

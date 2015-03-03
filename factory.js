@@ -67,6 +67,50 @@ function spawnMediumGuard() {
     Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'guard'});
 }
 
+var sourceDestroyerPosition = {x: 45, y: 26};
+
+var listSourceHealer = new Array();
+listSourceHealer.push({x: 45, y: 25});
+listSourceHealer.push({x: 46, y: 25});
+
+function getListOfOpenPos(list) {
+  var newList = new Array();
+
+  for (var i = 0; i < listSourceHealer.length; i++) {
+
+    var x = listSourceHealer[i].x;
+    var y = listSourceHealer[i].y;
+
+    var isUsed = false;
+    for (var j = 0; j < list.length; j++) {
+      if (list[j].toGo.x === x && list[j].toGo.y === y) {
+        isUsed = true;
+        break;
+      }
+    }
+
+    if (!isUsed)
+      newList.push(listSourceHealer[i]);
+  }
+
+  return newList;
+}
+
+function spawnSourceHealer(list) {
+  var modules = [Game.HEAL, Game.HEAL, Game.HEAL, Game.HEAL, Game.MOVE];
+
+  var listPos = getListOfOpenPos(list);
+
+  if (canSpawnUnit(modules))
+    Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_healer', toGo: pos[0]});
+}
+
+function spawnSourceDestroyer() {
+  var modules = [Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH,Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.MOVE];
+  if (canSpawnUnit(modules))
+    Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_destroyer', toGo: sourceDestroyerPosition});
+}
+
 module.exports = {
 
   createRobotz: function(data) {
@@ -107,6 +151,14 @@ module.exports = {
       var listConstructions = Game.spawns.Spawn1.room.find(Game.CONSTRUCTION_SITES);
       if (listConstructions.length > 0 && data.builderNumbers === 0 || data.builderNumbers === 0 && extNumbers > 0) {
         spawnWeakBuilder();
+      }
+
+      if (data.sourceDestroyerNumbers < 1) {
+        spawnSourceDestroyer();
+      }
+
+      if (data.sourceHealerNumbers < 2) {
+        spawnSourceHealer(data.listSourceHealer);
       }
 
       if (data.guardNumbers < 2 && Game.spawns.Spawn1) {
