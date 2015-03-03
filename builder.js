@@ -2,7 +2,8 @@
 module.exports = function (creep) {
   if(creep.energy == 0) {
 		creep.moveTo(Game.spawns.Spawn1);
-		Game.spawns.Spawn1.transferEnergy(creep);
+		if (Game.spawns.Spawn1.energy > 800)
+		  Game.spawns.Spawn1.transferEnergy(creep);
 	}
 	else {
 		var targets = creep.room.find(Game.CONSTRUCTION_SITES);

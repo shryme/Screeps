@@ -53,6 +53,12 @@
 	  flag1.remove();
 	  flag2.remove();
 
+	},
+	buildExtensionFlags: function(flag) {
+
+	  flag.room.createConstructionSite(flag1.x, flag1.y, Game.STRUCTURE_EXTENSION);
+	  flag.remove();
+
 	}
 
 

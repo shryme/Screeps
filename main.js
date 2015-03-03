@@ -68,3 +68,6 @@ factory.createRobotz(factoryData);
 if (Game.flags.Wall1 !== undefined && Game.flags.Wall2)
   road.buildWallBetweenFlags(Game.flags.Wall1, Game.flags.Wall2);
 
+if (Game.flags.Ext)
+  road.buildExtensionFlags(Game.flags.Ext);
+
