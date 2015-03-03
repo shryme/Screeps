@@ -56,7 +56,7 @@
 	},
 	buildExtensionFlags: function(flag) {
 
-	  flag.room.createConstructionSite(flag1.x, flag1.y, Game.STRUCTURE_EXTENSION);
+	  flag.room.createConstructionSite(flag.x, flag1.y, Game.STRUCTURE_EXTENSION);
 	  flag.remove();
 
 	}
