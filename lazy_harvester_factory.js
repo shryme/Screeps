@@ -42,7 +42,7 @@ module.exports = {
       listAllBus = new Array();
       listAllHarvester = new Array();
       var source = Game.spawns.Spawn1.pos.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
-      Game.spawns.Spawn1.memory.path = Game.spawns.Spawn1.room.findPath(Game.spawns.Spawn1.pos, source.pos, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
+      Game.spawns.Spawn1.memory.path = Game.spawns.Spawn1.room.findPath(Game.spawns.Spawn1.pos, source.pos, {maxOps: 3000, ignoreDestructibleStructures: true, ignoreCreeps: true});
 
       var path = Game.spawns.Spawn1.memory.path;
       for (var i = 0; i < path.length - 1; i++) {
