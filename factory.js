@@ -145,9 +145,9 @@ module.exports = {
       else if (data.sourceHealerNumbers < 2 || (data.destroyerRefresh && data.sourceDestroyerNumbers < 4)) {
         spawnSourceHealer(data.listSourceHealer);
       }
-      else if (Game.spawns.Spawn1.room.find(Game.CONSTRUCTION_SITES).length > 0 && data.builderNumbers === 0 || data.builderNumbers === 0 && extNumbers > 0) {
-        spawnWeakBuilder();
-      }
+      //else if (Game.spawns.Spawn1.room.find(Game.CONSTRUCTION_SITES).length > 0 && data.builderNumbers === 0 || data.builderNumbers === 0 && extNumbers > 0) {
+      //  spawnWeakBuilder();
+      //}
       else if (data.healerNumbers < 2 || data.needHealer === true) {
         spawnWeakHealer();
       }
