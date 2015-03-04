@@ -111,6 +111,12 @@ function spawnSourceDestroyer() {
     Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_destroyer', toGo: sourceDestroyerPosition});
 }
 
+function spawnSourceHarvester() {
+  var modules = [Game.WORK, Game.CARRY, Game.MOVE, Game.CARRY, Game.MOVE];
+  if (canSpawnUnit(modules))
+    Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_harvester'});
+}
+
 module.exports = {
 
   createRobotz: function(data) {
@@ -144,6 +150,9 @@ module.exports = {
       }
       else if (data.healerNumbers < 2 && Game.spawns.Spawn1) {
         spawnWeakHealer();
+      }
+      else if (data.sourceHarvesterNumbers < 4) {
+        spawnSourceHarvester();
       }
       else if (extNumbers > 0) {
         var pieces = [Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.ATTACK, Game.ATTACK, Game.MOVE, Game.MOVE, Game.MOVE];
