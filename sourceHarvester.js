@@ -1,7 +1,7 @@
 module.exports = function (creep) {
 
-	if(creep.energy < creep.energyCapacity) {
-	  if (Game.flags.SK) {
+  function harvest(creep) {
+    if (Game.flags.SK) {
 	    var source = Game.flags.SK.pos.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
 	    var targets = Game.flags.SK.pos.findInRange(Game.HOSTILE_CREEPS, 3);
       if(targets.length > 0) {
@@ -12,10 +12,10 @@ module.exports = function (creep) {
   		  creep.harvest(source);
   		}
 	  }
-	}
-	else {
+  }
 
-	  var target = creep.pos.findClosest(Game.MY_STRUCTURES, {filter: function(object) {return object.structureType === Game.STRUCTURE_EXTENSION && object.energy < object.energyCapacity} });
+  function build(creep) {
+    var target = creep.pos.findClosest(Game.MY_STRUCTURES, {filter: function(object) {return object.structureType === Game.STRUCTURE_EXTENSION && object.energy < object.energyCapacity} });
 	  if (target) {
 	    creep.moveTo(target);
 	    creep.transferEnergy(target);
@@ -31,5 +31,25 @@ module.exports = function (creep) {
 		    creep.transferEnergy(Game.spawns.Spawn1);
   		}
 		}
+  }
+
+  var isMining = false;
+  var targets = Game.flags.SK.pos.findInRange(Game.SOURCES_ACTIVE, 1);
+
+  if (targets.length > 0) {
+    isMining = true;
+  }
+
+	if(creep.energy < creep.energyCapacity) {
+	  if (isMining) {
+	    harvest(creep);
+	  }
+	  else {
+	    build(creep);
+	  }
+
+	}
+	else {
+    build(creep);
   }
 }
