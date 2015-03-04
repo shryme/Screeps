@@ -128,42 +128,37 @@ module.exports = {
 
       //1950 source keeper die, revive 2100
 
-      if (data.guardNumbers >= 10 && Game.spawns.Spawn1) {
-        spawnMediumGuard();
-      }
-
-      if (data.healerNumbers >= 2 && data.guardNumbers < 10 && Game.spawns.Spawn1) {
-        spawnToughGuard();
-      }
-
       var extNumbers = Game.spawns.Spawn1.room.find(Game.MY_STRUCTURES, {filter: function(object) {return object.structureType === Game.STRUCTURE_EXTENSION && object.energy === object.energyCapacity} }).length;
-      if (extNumbers > 0) {
+
+      if (data.guardNumbers < 2) {
+        spawnWeakGuard();
+      }
+      else if (data.sourceHealerNumbers < 2) {
+        spawnSourceHealer(data.listSourceHealer);
+      }
+      else if (data.sourceDestroyerNumbers < 1) {
+        spawnSourceDestroyer();
+      }
+      else if (Game.spawns.Spawn1.room.find(Game.CONSTRUCTION_SITES).length > 0 && data.builderNumbers === 0 || data.builderNumbers === 0 && extNumbers > 0) {
+        spawnWeakBuilder();
+      }
+      else if (data.healerNumbers < 2 && Game.spawns.Spawn1) {
+        spawnWeakHealer();
+      }
+      else if (extNumbers > 0) {
         var pieces = [Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.ATTACK, Game.ATTACK, Game.MOVE, Game.MOVE, Game.MOVE];
         for (var i = 0; i < extNumbers; i++)
           pieces.push(Game.ATTACK);
         spawnExtensionGuard(pieces);
       }
-
-      if (data.healerNumbers < 2 && Game.spawns.Spawn1) {
-        spawnWeakHealer();
+      else if (data.healerNumbers >= 2 && data.guardNumbers < 10 && Game.spawns.Spawn1) {
+        spawnToughGuard();
+      }
+      else if (data.guardNumbers >= 10 && Game.spawns.Spawn1) {
+        spawnMediumGuard();
       }
 
-      var listConstructions = Game.spawns.Spawn1.room.find(Game.CONSTRUCTION_SITES);
-      if (listConstructions.length > 0 && data.builderNumbers === 0 || data.builderNumbers === 0 && extNumbers > 0) {
-        spawnWeakBuilder();
-      }
 
-      if (data.sourceDestroyerNumbers < 1) {
-        spawnSourceDestroyer();
-      }
-
-      if (data.sourceHealerNumbers < 2) {
-        spawnSourceHealer(data.listSourceHealer);
-      }
-
-      if (data.guardNumbers < 2 && Game.spawns.Spawn1) {
-        spawnWeakGuard();
-      }
     }
 
   }
