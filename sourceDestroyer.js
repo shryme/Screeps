@@ -1,7 +1,6 @@
 module.exports = function (creep) {
-  if (creep.pos.x !== creep.memory.toGo.x && creep.pos.y !== creep.memory.toGo) {
+  if (creep.pos.x !== creep.memory.toGo.x && creep.pos.y !== creep.memory.toGo)
     creep.moveTo(creep.memory.toGo);
-  }
   else {
     var targets = creep.pos.findInRange(Game.HOSTILE_CREEPS, 3);
     if(targets.length > 0) {
