@@ -102,7 +102,7 @@ function spawnSourceHealer(list) {
   var listPos = getListOfOpenPos(list);
 
   if (canSpawnUnit(modules))
-    Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_healer', toGo: pos[0]});
+    Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_healer', toGo: listPos[0]});
 }
 
 function spawnSourceDestroyer() {
