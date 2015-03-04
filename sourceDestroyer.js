@@ -9,3 +9,7 @@ module.exports = function (creep) {
     }
   }
 }
+
+//spawn at 380
+//Get there at 940
+//560 to get there
