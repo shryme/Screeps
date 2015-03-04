@@ -41,7 +41,7 @@ module.exports = function (creep) {
   }
 
 	if(creep.energy < creep.energyCapacity) {
-	  if (isMining) {
+	  if (isMining || creep.energy === 0) {
 	    harvest(creep);
 	  }
 	  else {
