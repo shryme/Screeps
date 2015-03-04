@@ -34,7 +34,7 @@ module.exports = function (creep) {
   }
 
   var isMining = false;
-  var targets = Game.flags.SK.pos.findInRange(Game.SOURCES_ACTIVE, 1);
+  var targets = creep.pos.findInRange(Game.SOURCES_ACTIVE, 1);
 
   if (targets.length > 0) {
     isMining = true;
