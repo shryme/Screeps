@@ -24,6 +24,7 @@ factoryData.sourceDestroyerNumbers = 0;
 factoryData.sourceHealerNumbers = 0;
 factoryData.sourceHarvesterNumbers = 0;
 factoryData.harvesterSmallestTimeToLive = undefined;
+factoryData.needHealer = false;
 factoryData.listHarvester = new Array();
 factoryData.listBus = new Array();
 factoryData.listSourceHealer = new Array();
@@ -54,6 +55,8 @@ for(var name in Game.creeps) {
   else if (creep.memory.role === 'healer') {
     healer(creep);
     factoryData.healerNumbers++;
+    if (creep.getActiveBodyparts(Game.HEAL) == 0)
+      factoryData.needHealer = true;
   }
   else if (creep.memory.role === 'lazy_harvester') {
     lazy_harvester(creep);

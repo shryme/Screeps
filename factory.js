@@ -148,7 +148,7 @@ module.exports = {
       else if (Game.spawns.Spawn1.room.find(Game.CONSTRUCTION_SITES).length > 0 && data.builderNumbers === 0 || data.builderNumbers === 0 && extNumbers > 0) {
         spawnWeakBuilder();
       }
-      else if (data.healerNumbers < 2 && Game.spawns.Spawn1) {
+      else if (data.healerNumbers < 2 || data.needHealer === true) {
         spawnWeakHealer();
       }
       else if (data.sourceHarvesterNumbers < 4) {
