@@ -139,7 +139,7 @@ module.exports = {
       if (data.guardNumbers < 2) {
         spawnWeakGuard();
       }
-      else if (data.sourceDestroyerNumbers < 1 || (factoryData.destroyerRefresh && data.sourceDestroyerNumbers < 2)) {
+      else if (data.sourceDestroyerNumbers < 1 || (data.destroyerRefresh && data.sourceDestroyerNumbers < 2)) {
         spawnSourceDestroyer();
       }
       else if (data.sourceHealerNumbers < 2) {
