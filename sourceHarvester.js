@@ -50,6 +50,9 @@ module.exports = function (creep) {
 
 	}
 	else {
-    build(creep);
+	  if (creep.energy > 0)
+      build(creep);
+    else
+      harvest(creep);
   }
 }
