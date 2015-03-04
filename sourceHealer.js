@@ -4,7 +4,7 @@ module.exports = function (creep) {
   }
   else {
     var tm = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === 'source_destroyer'} });
-    if (tm) {
+    if (tm)
       creep.heal(tm);
   }
 }
