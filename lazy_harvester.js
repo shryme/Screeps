@@ -1,7 +1,7 @@
 
 module.exports = function(creep) {
 
-  if (creep.pos.x !== creep.memory.toGo.x && creep.pos.y !== creep.memory.toGo) {
+  if (creep.pos.x !== creep.memory.toGo.x || creep.pos.y !== creep.memory.toGo.y) {
     creep.moveTo(creep.memory.toGo);
   }
   else {
