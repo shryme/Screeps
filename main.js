@@ -7,7 +7,7 @@ var lazy_harvester = require('lazy_harvester');
 var bus = require('bus');
 var sourceDestroyer = require('sourceDestroyer');
 var sourceHealer = require('sourceHealer');
-var sourceHaverster = require('sourceHaverster');
+var sourceHaverster = require('sourceHarvester');
 
 var factory = require('factory');
 
