@@ -139,11 +139,11 @@ module.exports = {
       if (data.guardNumbers < 2) {
         spawnWeakGuard();
       }
+      else if (data.sourceDestroyerNumbers < 1 || (factoryData.destroyerRefresh && data.sourceDestroyerNumbers < 2)) {
+        spawnSourceDestroyer();
+      }
       else if (data.sourceHealerNumbers < 2) {
         spawnSourceHealer(data.listSourceHealer);
-      }
-      else if (data.sourceDestroyerNumbers < 1) {
-        spawnSourceDestroyer();
       }
       else if (Game.spawns.Spawn1.room.find(Game.CONSTRUCTION_SITES).length > 0 && data.builderNumbers === 0 || data.builderNumbers === 0 && extNumbers > 0) {
         spawnWeakBuilder();

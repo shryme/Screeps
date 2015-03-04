@@ -68,6 +68,8 @@ for(var name in Game.creeps) {
   else if (creep.memory.role === 'source_destroyer') {
     sourceDestroyer(creep);
     factoryData.sourceDestroyerNumbers++;
+    if (creep.ticksToLive < 560)
+      factoryData.destroyerRefresh = true;
   }
   else if (creep.memory.role === 'source_healer') {
     sourceHealer(creep);
