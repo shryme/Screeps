@@ -4,7 +4,8 @@ module.exports = function (creep) {
     if (Game.flags.SK) {
 	    var source = Game.flags.SK.pos.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
 	    var targets = Game.flags.SK.pos.findInRange(Game.HOSTILE_CREEPS, 3);
-      if(targets.length > 0) {
+	    var lair = Game.flags.SK.pos.findClosest(Game.HOSTILE_STRUCTURES).ticksToSpawn;
+      if(targets.length > 0 || lair <= 20) {
         creep.moveTo(46, 20);
       }
   		else {
