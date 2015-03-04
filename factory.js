@@ -96,10 +96,13 @@ function getListOfOpenPos(list) {
   return newList;
 }
 
-function spawnSourceHealer(list) {
+function spawnSourceHealer(list, isTemp) {
   var modules = [Game.HEAL, Game.HEAL, Game.HEAL, Game.HEAL, Game.MOVE];
 
   var listPos = getListOfOpenPos(list);
+
+  if (listPos.length === 0 && isTemp === true)
+    listPos.push({x: 44, y: 25});
 
   if (canSpawnUnit(modules))
     Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_healer', toGo: listPos[0]});
@@ -142,8 +145,8 @@ module.exports = {
       else if (data.sourceDestroyerNumbers < 1 || (data.destroyerRefresh && data.sourceDestroyerNumbers < 2)) {
         spawnSourceDestroyer();
       }
-      else if (data.sourceHealerNumbers < 2 || (data.destroyerRefresh && data.sourceDestroyerNumbers < 4)) {
-        spawnSourceHealer(data.listSourceHealer);
+      else if (data.sourceHealerNumbers < 2 || (data.destroyerRefresh && data.sourceDestroyerNumbers < 3)) {
+        spawnSourceHealer(data.listSourceHealer, data.destroyerRefresh);
       }
       //else if (Game.spawns.Spawn1.room.find(Game.CONSTRUCTION_SITES).length > 0 && data.builderNumbers === 0 || data.builderNumbers === 0 && extNumbers > 0) {
       //  spawnWeakBuilder();
