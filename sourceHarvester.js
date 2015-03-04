@@ -14,7 +14,22 @@ module.exports = function (creep) {
 	  }
 	}
 	else {
-		creep.moveTo(Game.spawns.Spawn1);
-		creep.transferEnergy(Game.spawns.Spawn1)
+
+	  var target = creep.pos.findClosest(Game.MY_STRUCTURES, {filter: function(object) {return object.structureType === Game.STRUCTURE_EXTENSION && object.energy < object.energyCapacity} });
+	  if (target) {
+	    creep.moveTo(target);
+	    creep.transferEnergy(target);
+	  }
+		else {
+		  var targets = creep.room.find(Game.CONSTRUCTION_SITES);
+  		if(targets.length) {
+  			creep.moveTo(targets[0]);
+  			creep.build(targets[0]);
+  		}
+  		else {
+  		  creep.moveTo(Game.spawns.Spawn1);
+		    creep.transferEnergy(Game.spawns.Spawn1);
+  		}
+		}
   }
 }
