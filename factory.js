@@ -154,7 +154,7 @@ module.exports = {
       else if (data.healerNumbers < 2 || data.needHealer === true) {
         spawnWeakHealer();
       }
-      else if (data.sourceHarvesterNumbers < 4) {
+      else if (data.sourceHarvesterNumbers < 3) {
         spawnSourceHarvester();
       }
       else if (extNumbers > 0) {
