@@ -47,8 +47,8 @@ module.exports = {
       var path = Game.spawns.Spawn1.memory.path;
       for (var i = 0; i < path.length - 1; i++) {
         if (i === 0) {
-          listAllHarvester.push({toGo: {x: path[path.length - 2].x, y: path[path.length - 2].y - 1}, toDrop: path[path.length - 3]});
           listAllHarvester.push({toGo: path[path.length - 2], toDrop: path[path.length - 3]});
+          listAllHarvester.push({toGo: {x: path[path.length - 2].x, y: path[path.length - 2].y - 1}, toDrop: path[path.length - 2]});
         }
         else {
           var currentPath = {toGo: path[path.length - 2 - i], toDrop: path[path.length - 3 - i]}
