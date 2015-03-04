@@ -145,7 +145,7 @@ module.exports = {
       else if (data.sourceDestroyerNumbers < 1 || (data.destroyerRefresh && data.sourceDestroyerNumbers < 2)) {
         spawnSourceDestroyer();
       }
-      else if (data.sourceHealerNumbers < 2 || (data.destroyerRefresh && data.sourceDestroyerNumbers < 3)) {
+      else if (data.sourceHealerNumbers < 2 || (data.destroyerRefresh && data.sourceHealerNumbers < 3)) {
         spawnSourceHealer(data.listSourceHealer, data.destroyerRefresh);
       }
       //else if (Game.spawns.Spawn1.room.find(Game.CONSTRUCTION_SITES).length > 0 && data.builderNumbers === 0 || data.builderNumbers === 0 && extNumbers > 0) {
