@@ -12,14 +12,16 @@ module.exports = function (creep) {
 
 
 	var sourceDestroyer = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === 'source_destroyer'} });
-	if (Game.spawns.Spawn1.memory.source_harvester_bypass === false) {
-		creep.moveTo(sourceDestroyer.x, sourceDestroyer.y - 1);
-		creep.heal(sourceDestroyer);
-	}
-	else {
-		creep.moveTo(sourceDestroyer.x, sourceDestroyer.y + 2);
-		var target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.hits < object.hitsMax && object.id !== creep.id;} });
-		creep.heal(target);
+	if (sourceDestroyer) {
+		if (Game.spawns.Spawn1.memory.source_harvester_bypass === false) {
+			creep.moveTo(sourceDestroyer.x, sourceDestroyer.y - 1);
+			creep.heal(sourceDestroyer);
+		}
+		else {
+			creep.moveTo(sourceDestroyer.x, sourceDestroyer.y + 2);
+			var target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.hits < object.hitsMax && object.id !== creep.id;} });
+			creep.heal(target);
+		}
 	}
 
 	// if (creep.pos.x !== creep.memory.toGo.x || creep.pos.y !== creep.memory.toGo.y) {
