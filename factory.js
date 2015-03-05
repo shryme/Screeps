@@ -117,6 +117,7 @@ function findClosestSourceKeeperSpot(from) {
 		Game.spawns.Spawn1.memory.sourceKeeperPos = sourceKeeper.pos;
 	}
 
+
 	return Game.spawns.Spawn1.memory.sourceKeeperPos;
 
 
