@@ -173,9 +173,9 @@ module.exports = {
 			else if (data.sourceHarvesterNumbers < 3) {
 				spawnSourceHarvester();
 			}
-			else if (data.healerNumbers < 4) {
-				spawnWeakHealer('source_harvester');
-			}
+			// else if (data.healerNumbers < 4) {
+			// 	spawnWeakHealer('source_harvester');
+			// }
 			else if (extNumbers > 0) {
 				var pieces = [Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.ATTACK, Game.ATTACK, Game.MOVE, Game.MOVE, Game.MOVE];
 				for (var i = 0; i < extNumbers; i++)
