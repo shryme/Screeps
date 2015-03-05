@@ -17,7 +17,7 @@ module.exports = function (creep) {
   else {
     var tm
     if (creep.memory.targetRole)
-      tm = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === creep.role.targetRole} });
+      tm = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === memory.role.targetRole} });
     else
       tm = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === 'guard'} });
     if (tm) {
