@@ -2,7 +2,7 @@ module.exports = function (creep) {
 
   var target;
 
-  if (creep.role.targetRole)
+  if (creep.memory.targetRole)
     target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.hits < object.hitsMax && object.id !== creep.id && object.memory.role !== 'source_destroyer' && object.memory.role === creep.memory.targetRole;} });
   else
     target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.hits < object.hitsMax && object.id !== creep.id && object.memory.role !== 'source_destroyer';} });
@@ -16,7 +16,7 @@ module.exports = function (creep) {
   }
   else {
     var tm
-    if (creep.role.targetRole)
+    if (creep.memory.targetRole)
       tm = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === creep.role.targetRole} });
     else
       tm = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === 'guard'} });
