@@ -2,7 +2,7 @@ module.exports = function (creep) {
 
 	var target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.hits < object.hitsMax && object.id !== creep.id && object.memory.role === 'source_destroyer';} });
 
-	if (target === undefined)
+	if (!target)
 		target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === 'source_destroyer'} });
 
 	if (target) {
