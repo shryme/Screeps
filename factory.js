@@ -114,10 +114,10 @@ function findClosestSourceKeeperSpot(from) {
 	if (Game.spawns.Spawn1.memory.sourceKeeperPos === undefined) {
 		var lair = from.pos.findClosest(Game.HOSTILE_STRUCTURES);
 		var sourceKeeper = lair.pos.findClosest(Game.HOSTILE_CREEPS);
+		sourceKeeper.pos.x = sourceKeeper.pos.x + 1;
 		Game.spawns.Spawn1.memory.sourceKeeperPos = sourceKeeper.pos;
 	}
 
-	//test
 	return Game.spawns.Spawn1.memory.sourceKeeperPos;
 
 
