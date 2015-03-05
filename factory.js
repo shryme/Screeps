@@ -44,10 +44,10 @@ function spawnWeakBuilder() {
 		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'builder'});
 }
 
-function spawnWeakHealer() {
+function spawnWeakHealer(targetRole) {
 	var modules = [Game.HEAL, Game.HEAL, Game.HEAL, Game.MOVE, Game.MOVE];
 	if (canSpawnUnit(modules))
-		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'healer'});
+		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'healer', targetRole: targetRole});
 }
 
 function spawnExtensionGuard(pieces) {
@@ -172,6 +172,9 @@ module.exports = {
 			}
 			else if (data.sourceHarvesterNumbers < 3) {
 				spawnSourceHarvester();
+			}
+			else if (data.healerNumbers < 4) {
+				spawnWeakHealer('source_harvester');
 			}
 			else if (extNumbers > 0) {
 				var pieces = [Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.ATTACK, Game.ATTACK, Game.MOVE, Game.MOVE, Game.MOVE];

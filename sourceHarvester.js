@@ -7,12 +7,13 @@ module.exports = function (creep) {
 		var targets = pos.findInRange(Game.HOSTILE_CREEPS, 3);
 		var ticks = Game.spawns.Spawn1.pos.findClosest(Game.HOSTILE_STRUCTURES).ticksToSpawn;
 		//var lair = Game.flags.SK.pos.findClosest(Game.HOSTILE_STRUCTURES).ticksToSpawn;
-		if(targets.length > 0 || ticks < 50) {
-			creep.moveTo(46, 20);
-		}
-		else {
+
+		if (Game.spawns.Spawn1.memory.source_harvester_bypass === true || targets.length === 0 || tick > 40) {
 			creep.moveTo(source);
 			creep.harvest(source);
+		}
+		else {
+			creep.moveTo(46, 20);
 		}
 	}
 
