@@ -8,7 +8,7 @@ module.exports = function (creep) {
 		var ticks = Game.spawns.Spawn1.pos.findClosest(Game.HOSTILE_STRUCTURES).ticksToSpawn;
 		//var lair = Game.flags.SK.pos.findClosest(Game.HOSTILE_STRUCTURES).ticksToSpawn;
 
-		if (Game.spawns.Spawn1.memory.source_harvester_bypass === true || targets.length === 0 || tick > 40) {
+		if (Game.spawns.Spawn1.memory.source_harvester_bypass === true || targets.length === 0 || ticks > 40) {
 			creep.moveTo(source);
 			creep.harvest(source);
 		}
