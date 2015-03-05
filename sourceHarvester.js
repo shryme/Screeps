@@ -3,8 +3,8 @@ module.exports = function (creep) {
 	function harvest(creep) {
 		var sourceKeeper = Game.spawns.Spawn1.memory.sourceKeeperPos;
 
-		var source = sourceKeeper.pos.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
-		var targets = sourceKeeper.pos.findInRange(Game.HOSTILE_CREEPS, 3);
+		var source = sourceKeeper.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
+		var targets = sourceKeeper.findInRange(Game.HOSTILE_CREEPS, 3);
 		var ticks = Game.spawns.Spawn1.pos.findClosest(Game.HOSTILE_STRUCTURES).ticksToSpawn;
 		//var lair = Game.flags.SK.pos.findClosest(Game.HOSTILE_STRUCTURES).ticksToSpawn;
 		if(targets.length > 0 || ticks < 50) {
