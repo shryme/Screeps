@@ -5,7 +5,7 @@ module.exports = function (creep) {
 	if (targets > 0) {
 		creep.rangedAttack(targets[0]);
 	}
-	if (range > 3) {
+	if (sourceDistance > 3) {
 		creep.moveTo(Game.spawns.Spawn1.memory.sourceKeeperPos);
 	}
 
