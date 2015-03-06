@@ -29,14 +29,14 @@ module.exports = function (creep) {
 			// creep.moveTo(sourceDestroyer.pos.x, sourceDestroyer.pos.y + 2);
 			// var target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.hits < object.hitsMax && object.id !== creep.id;} });
 
-			var targets = creep.pos.findInRange(Games.creeps, 3);
+			var targets = creep.pos.findInRange(Game.creeps, 3);
 
 			var lowestCreep;
 			for (var i = 0; i < targets.length; i++) {
 				if (!lowestCreep || targets[i].hits < lowestCreep.hits)
 					lowestCreep = targets[i];
 			}
-			
+
 
 			if (lowestCreep)
 				creep.heal(lowestCreep);
