@@ -36,6 +36,7 @@ module.exports = function (creep) {
 				if (!lowestCreep || targets[i].hits < lowestCreep.hits)
 					lowestCreep = targets[i];
 			}
+			
 
 			if (lowestCreep)
 				creep.heal(lowestCreep);
