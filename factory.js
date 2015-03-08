@@ -123,6 +123,7 @@ function findClosestSourceKeeperSpot(from) {
 
 }
 
+
 function spawnSourceDestroyer() {
 	var keeperPos = findClosestSourceKeeperSpot(Game.spawns.Spawn1);
 	var modules = [Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH,Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.MOVE];
