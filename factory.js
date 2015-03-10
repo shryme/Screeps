@@ -1,4 +1,5 @@
 
+//List of module prices
 var prices = {};
 prices.move = 50;
 prices.work = 20;
@@ -8,6 +9,9 @@ prices.ranged_attack = 150;
 prices.heal = 200;
 prices.tough = 20;
 
+
+
+//List of position to take for lazy harvester and bus
 var listAllBus = Game.spawns.Spawn1.room.memory.listAllBus;
 var listAllHarvester = Game.spawns.Spawn1.room.memory.listAllHarvester;
 
@@ -42,6 +46,7 @@ function getListOfOpenPosHarvester(type, currentList) {
 }
 
 
+//Calculate cost and detect if it's fine to spawn a new creep
 function getCost(arr) {
 	var total = 0;
 	for (var i = 0; i < arr.length; i++) {
@@ -63,6 +68,7 @@ function canSpawnUnit(arr) {
 	return false
 }
 
+//Creation creep
 function spawnWeakGuard() {
 	var modules = [Game.TOUGH, Game.MOVE, Game.ATTACK, Game.MOVE, Game.ATTACK, Game.RANGED_ATTACK];
 	if (canSpawnUnit(modules))
@@ -98,43 +104,8 @@ function spawnMediumGuard() {
 		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'guard'});
 }
 
-var sourceDestroyerPosition = {x: 45, y: 26};
-
-var listSourceHealer = new Array();
-listSourceHealer.push({x: 45, y: 25});
-listSourceHealer.push({x: 46, y: 25});
-
-function getListOfOpenPos(list) {
-	var newList = new Array();
-
-	for (var i = 0; i < listSourceHealer.length; i++) {
-
-		var x = listSourceHealer[i].x;
-		var y = listSourceHealer[i].y;
-
-		var isUsed = false;
-		for (var j = 0; j < list.length; j++) {
-			if (list[j].toGo.x === x && list[j].toGo.y === y) {
-				isUsed = true;
-				break;
-			}
-		}
-
-		if (!isUsed)
-			newList.push(listSourceHealer[i]);
-	}
-
-	return newList;
-}
-
 function spawnSourceHealer(list, isTemp) {
 	var modules = [Game.HEAL, Game.HEAL, Game.HEAL, Game.HEAL, Game.MOVE];
-
-	var listPos = getListOfOpenPos(list);
-
-	if (listPos.length === 0 && isTemp === true)
-		listPos.push({x: 44, y: 25});
-
 	if (canSpawnUnit(modules))
 		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_healer', toGo: listPos[0]});
 }
@@ -183,6 +154,8 @@ module.exports = {
 			for (var i = 0; i < path.length - 1; i++) {
 				if (i === 0) {
 					listAllHarvester.push({toGo: path[path.length - 2], toDrop: path[path.length - 3]});
+					//TODO don't hardcode this part
+					//TODO need to detect where to put second harvester
 					listAllHarvester.push({toGo: {x: path[path.length - 2].x, y: path[path.length - 2].y - 1}, toDrop: path[path.length - 2]});
 				}
 				else {
