@@ -107,7 +107,7 @@ function spawnMediumGuard() {
 function spawnSourceHealer(list, isTemp) {
 	var modules = [Game.HEAL, Game.HEAL, Game.HEAL, Game.HEAL, Game.MOVE];
 	if (canSpawnUnit(modules))
-		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_healer', toGo: listPos[0]});
+		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_healer'});
 }
 
 function findClosestSourceKeeperSpot(from) {

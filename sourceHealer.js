@@ -5,17 +5,17 @@ module.exports = function (creep) {
 	if (sourceDestroyer) {
 		if (Game.spawns.Spawn1.memory.source_harvester_bypass === false) {
 			//If the source destroyer is destroying the source keeper, let the source destroyer destroy the source keeper
-			healSourceDestroyer(creep);
+			healSourceDestroyer(creep, sourceDestroyer);
 		}
 		else {
 			//When the source destroyer is finished, move healer below it to start healing everything
-			healLowestCreep(creep);
+			healLowestCreep(creep, sourceDestroyer);
 		}
 	}
 
 }
 
-function healSourceDestroyer(creep) {
+function healSourceDestroyer(creep, sourceDestroyer) {
 	if (creep.room.lookAt(sourceDestroyer.pos.x, sourceDestroyer.pos.y - 1).length === 1)
 		creep.moveTo(sourceDestroyer.pos.x, sourceDestroyer.pos.y - 1);
 	else
@@ -23,7 +23,7 @@ function healSourceDestroyer(creep) {
 	creep.heal(sourceDestroyer);
 }
 
-function healLowestCreep(creep) {
+function healLowestCreep(creep, sourceDestroyer) {
 
 	if (creep.room.lookAt(sourceDestroyer.pos.x, sourceDestroyer.pos.y + 2).length === 1)
 		creep.moveTo(sourceDestroyer.pos.x, sourceDestroyer.pos.y + 2);
