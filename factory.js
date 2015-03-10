@@ -128,6 +128,8 @@ function findClosestSourceKeeperSpot(from) {
 
 function spawnSourceDestroyer() {
 	var keeperPos = findClosestSourceKeeperSpot(Game.spawns.Spawn1);
+	keeperPos.x = 45;
+	keeperPos.y = 26;
 	var modules = [Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH,Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.MOVE];
 	if (canSpawnUnit(modules))
 		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_destroyer', targetPos: keeperPos});

@@ -14,9 +14,9 @@ module.exports = function (creep) {
 			Game.spawns.Spawn1.memory.source_harvester_bypass = true;
 	}
 	//Move towards the source keeper
-	if (sourceDistance > 3) {
+	if (sourceDistance === 0) {
 		//TODO detect when destroyer is in the way for harvesting
-		creep.moveTo(Game.spawns.Spawn1.memory.sourceKeeperPos.x + 1, Game.spawns.Spawn1.memory.sourceKeeperPos.y);
+		creep.moveTo(Game.spawns.Spawn1.memory.sourceKeeperPos);
 	}
 
 }
