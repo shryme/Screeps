@@ -38,6 +38,12 @@ function healLowestCreep(creep, sourceDestroyer) {
 			lowestCreep = targets[i];
 	}
 
-	if (lowestCreep)
-		creep.heal(lowestCreep);
+	if (lowestCreep) {
+		var range = creep.pos.getRangeTo(lowestCreep);
+
+		if (range > 1)
+			creep.rangedHeal(lowestCreep);
+		else
+			creep.heal(lowestCreep);
+	}
 }
