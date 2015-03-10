@@ -30,7 +30,7 @@ function healLowestCreep(creep, sourceDestroyer) {
 	else
 		creep.moveTo(sourceDestroyer.pos.x, sourceDestroyer.pos.y + 1);
 
-	var targets = creep.pos.findInRange(Game.creeps, 3);
+	var targets = creep.pos.findInRange(Game.MY_CREEPS, 3);
 
 	var lowestCreep;
 	for (var i = 0; i < targets.length; i++) {
