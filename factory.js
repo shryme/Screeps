@@ -215,10 +215,14 @@ module.exports = {
 			if (data.guardNumbers < 2) {
 				spawnWeakGuard();
 			}
-			else if (data.sourceDestroyerNumbers < 1 || (data.destroyerRefresh && data.sourceDestroyerNumbers < 2)) {
+			//TODO Upgrade the detection for when the spot is safe for harvesting before doing this
+			//else if (data.sourceDestroyerNumbers < 1 || (data.destroyerRefresh && data.sourceDestroyerNumbers < 2)) {
+			else if (data.sourceDestroyerNumbers < 1) {
 				spawnSourceDestroyer();
 			}
-			else if (data.sourceHealerNumbers < 2 || (data.destroyerRefresh && data.sourceHealerNumbers < 3)) {
+			//TODO Upgrade the detection for when the spot is safe for harvesting before doing this
+			//else if (data.sourceHealerNumbers < 2 || (data.destroyerRefresh && data.sourceHealerNumbers < 3)) {
+			else if (data.sourceHealerNumbers < 2) {
 				spawnSourceHealer(data.listSourceHealer, data.destroyerRefresh);
 			}
 			else if (data.healerNumbers < 2 || data.needHealer === true) {

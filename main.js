@@ -29,6 +29,8 @@ factoryData.listHarvester = new Array();
 factoryData.listBus = new Array();
 factoryData.listSourceHealer = new Array();
 
+Game.spawns.Spawn1.memory.source_harvester_bypass = false;
+
 for(var name in Game.creeps) {
 	var creep = Game.creeps[name];
 
