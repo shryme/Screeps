@@ -34,7 +34,7 @@ function healLowestCreep(creep, sourceDestroyer) {
 
 	var lowestCreep;
 	for (var i = 0; i < targets.length; i++) {
-		if (lowestCreep === undefined || targets[i].hits < lowestCreep.hits)
+		if (targets[i].id !== creep.id && (lowestCreep === undefined || targets[i].hits < lowestCreep.hits))
 			lowestCreep = targets[i];
 	}
 

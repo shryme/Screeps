@@ -1,6 +1,6 @@
 module.exports = function (creep) {
 
-	Game.spawns.Spawn1.memory.source_harvester_bypass = true;
+	Game.spawns.Spawn1.memory.source_harvester_bypass = false;
 
 	//Destroy the source keeper and tell everyone it's done once it is
 	var sourceDistance = creep.pos.getRangeTo(Game.spawns.Spawn1.memory.sourceKeeperPos);
@@ -10,6 +10,8 @@ module.exports = function (creep) {
 			creep.rangedAttack(targets[0]);
 			Game.spawns.Spawn1.memory.source_harvester_bypass = false;
 		}
+		else
+			Game.spawns.Spawn1.memory.source_harvester_bypass = true;
 	}
 	//Move towards the source keeper
 	if (sourceDistance > 3) {
