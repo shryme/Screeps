@@ -140,6 +140,12 @@ function spawnSourceHarvester() {
 		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_harvester'});
 }
 
+function spawnSourceHarvester() {
+	var modules = [Game.CARRY, Game.CARRY, Game.CARRY, Game.MOVE, Game.MOVE];
+	if (canSpawnUnit(modules))
+		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_carrier'});
+}
+
 module.exports = {
 
 	isDone: function(nbHarvester, nbBus, listBus, listHarvester) {
@@ -227,8 +233,11 @@ module.exports = {
 			else if (data.healerNumbers < 2 || data.needHealer === true) {
 				spawnWeakHealer();
 			}
-			else if (data.sourceHarvesterNumbers < 3) {
+			else if (data.sourceHarvesterNumbers < 2) {
 				spawnSourceHarvester();
+			}
+			else if (data.sourceCarrierNumbers < 4) {
+				spawnSourceCarrier();
 			}
 			else if (extNumbers > 0) {
 				var pieces = [Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.TOUGH, Game.ATTACK, Game.ATTACK, Game.MOVE, Game.MOVE, Game.MOVE];

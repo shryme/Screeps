@@ -8,6 +8,7 @@ var bus = require('bus');
 var sourceDestroyer = require('sourceDestroyer');
 var sourceHealer = require('sourceHealer');
 var sourceHarvester = require('sourceHarvester');
+var sourceCarrier = require('sourceCarrier');
 
 var factory = require('factory');
 
@@ -23,6 +24,7 @@ factoryData.busNumbers = 0;
 factoryData.sourceDestroyerNumbers = 0;
 factoryData.sourceHealerNumbers = 0;
 factoryData.sourceHarvesterNumbers = 0;
+factoryData.sourceCarrierNumbers = 0;
 factoryData.harvesterSmallestTimeToLive = undefined;
 factoryData.needHealer = false;
 factoryData.listHarvester = new Array();
@@ -95,6 +97,10 @@ for(var name in Game.creeps) {
 	else if (creep.memory.role === 'source_harvester') {
 		sourceHarvester(creep);
 		factoryData.sourceHarvesterNumbers++;
+	}
+	else if (creep.memory.role === 'source_carrier') {
+		sourceCarrier(creep);
+		factoryData.sourceCarrierNumbers++;
 	}
 }
 
