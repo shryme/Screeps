@@ -1,5 +1,7 @@
 module.exports = function (creep) {
 
+	var isMoving = sourceDistance >= 0 ? true : false;
+
 	//Destroy the source keeper and tell everyone it's done once it is
 	var sourceDistance = creep.pos.getRangeTo(Game.spawns.Spawn1.memory.sourceKeeperPos);
 	var targets = creep.pos.findInRange(Game.HOSTILE_CREEPS, 3);
@@ -8,17 +10,19 @@ module.exports = function (creep) {
 			creep.rangedAttack(targets[0]);
 			Game.spawns.Spawn1.memory.source_harvester_bypass = false;
 		}
-		else{
+		else {
 			Game.spawns.Spawn1.memory.source_harvester_bypass = true;
 		}
 	}
-	else {
-		Game.spawns.Spawn1.memory.source_harvester_bypass = true;
-	}
+	
 	//Move towards the source keeper
-	if (sourceDistance >= 0) {
+	if (isMoving) {
 		//TODO detect when destroyer is in the way for harvesting
 		creep.moveTo(Game.spawns.Spawn1.memory.sourceKeeperPos);
+		Game.spawns.Spawn1.memory.source_harvester_bypass = false;
+	}
+	else {
+		Game.spawns.Spawn1.memory.source_harvester_bypass = true;
 	}
 
 }

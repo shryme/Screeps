@@ -3,13 +3,13 @@ module.exports = function (creep) {
 	//Find the closest source_destroyer
 	var sourceDestroyer = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === 'source_destroyer'} });
 	if (sourceDestroyer) {
-		if (Game.spawns.Spawn1.memory.source_harvester_bypass === false) {
-			//If the source destroyer is destroying the source keeper, let the source destroyer destroy the source keeper
-			healSourceDestroyer(creep, sourceDestroyer);
-		}
-		else {
+		if (Game.spawns.Spawn1.memory.source_harvester_bypass === true) {
 			//When the source destroyer is finished, move healer below it to start healing everything
 			healLowestCreep(creep, sourceDestroyer);
+		}
+		else {
+			//If the source destroyer is destroying the source keeper, let the source destroyer destroy the source keeper
+			healSourceDestroyer(creep, sourceDestroyer);
 		}
 	}
 
