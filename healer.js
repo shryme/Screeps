@@ -6,7 +6,7 @@ module.exports = function (creep) {
 		target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.hits < object.hitsMax && object.id !== creep.id && object.memory.role !== 'source_destroyer' && object.memory.role === creep.memory.targetRole;} });
 	else
 		target = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) 
-			{return object.hits < object.hitsMax && object.id !== creep.id && object.memory.role !== 'source_destroyer' && object.memory.role !== 'source_harvester' && object.memory.role !== 'source_healer';} });
+			{return object.hits < object.hitsMax && object.id !== creep.id && object.memory.role !== 'source_destroyer' && object.memory.role !== 'source_harvester' && object.memory.role !== 'source_healer' && object.memory.role !== 'source_carrier';} });
 	if (target) {
 
 		//If the healer have no more working healer module, stays at flag
@@ -14,7 +14,7 @@ module.exports = function (creep) {
 			target = Game.flags.Flag1;
 		else {
 			creep.moveTo(target);
-			
+
 			var range = creep.pos.getRangeTo(target);
 			if (range > 1)
 				creep.rangedHeal(target);
