@@ -140,7 +140,7 @@ function spawnSourceHarvester() {
 		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_harvester'});
 }
 
-function spawnSourceHarvester() {
+function spawnSourceCarrier() {
 	var modules = [Game.CARRY, Game.CARRY, Game.CARRY, Game.MOVE, Game.MOVE];
 	if (canSpawnUnit(modules))
 		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_carrier'});
