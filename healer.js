@@ -14,7 +14,12 @@ module.exports = function (creep) {
 			target = Game.flags.Flag1;
 		else {
 			creep.moveTo(target);
-			creep.heal(target);
+			
+			var range = creep.pos.getRangeTo(target);
+			if (range > 1)
+				creep.rangedHeal(target);
+			else
+				creep.heal(target);
 		}
 	}
 	else {
