@@ -3,7 +3,7 @@ module.exports = function (creep) {
 	//Find the closest source_destroyer
 	var sourceDestroyer = creep.pos.findClosest(Game.MY_CREEPS, {filter: function(object) {return object.memory.role === 'source_destroyer'} });
 	if (sourceDestroyer) {
-		if (Game.spawns.Spawn1.memory.source_harvester_bypass === true) {
+		if (Game.spawns.Spawn1.memory.keeper_neutralized === true) {
 			//When the source destroyer is finished, move healer below it to start healing everything
 			healLowestCreep(creep, sourceDestroyer);
 		}
