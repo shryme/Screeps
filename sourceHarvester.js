@@ -32,7 +32,7 @@ function harvest(creep) {
 	var ticks = Game.spawns.Spawn1.pos.findClosest(Game.HOSTILE_STRUCTURES).ticksToSpawn;
 	//var lair = Game.flags.SK.pos.findClosest(Game.HOSTILE_STRUCTURES).ticksToSpawn;
 
-	if (targets.length === 0 && (ticks === undefined || ticks > 40)) {
+	if (Game.spawns.Spawn1.memory.keeper_neutralized === true) {
 		creep.moveTo(source);
 		creep.harvest(source);
 	}
