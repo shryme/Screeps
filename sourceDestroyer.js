@@ -9,10 +9,10 @@ module.exports = function (creep) {
 	if (targets.length > 0) {
 		if (targets[0].hits > 100) {
 			creep.rangedAttack(targets[0]);
-			Game.spawns.Spawn1.memory.keeper_neutralized = false;
+			// Game.spawns.Spawn1.memory.keeper_neutralized = false;
 		}
 		else {
-			Game.spawns.Spawn1.memory.keeper_neutralized = true;
+			// Game.spawns.Spawn1.memory.keeper_neutralized = true;
 		}
 	}
 	else {
@@ -20,10 +20,10 @@ module.exports = function (creep) {
 		if (isMoving) {
 			//TODO detect when destroyer is in the way for harvesting
 			creep.moveTo(Game.spawns.Spawn1.memory.sourceKeeperPos);
-			Game.spawns.Spawn1.memory.keeper_neutralized = false;
+			// Game.spawns.Spawn1.memory.keeper_neutralized = false;
 		}
 		else {
-			Game.spawns.Spawn1.memory.keeper_neutralized = true;
+			// Game.spawns.Spawn1.memory.keeper_neutralized = true;
 		}
 	}
 

@@ -125,7 +125,6 @@ function findClosestSourceKeeperSpot(from) {
 
 }
 
-
 function spawnSourceDestroyer() {
 	var keeperPos = findClosestSourceKeeperSpot(Game.spawns.Spawn1);
 	keeperPos.x = 45;
