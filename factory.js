@@ -226,7 +226,7 @@ module.exports = {
 				spawnSourceDestroyer();
 			}
 			//TODO Upgrade the detection for when the spot is safe for harvesting before doing this
-			else if (data.sourceHealerNumbers < 2 || (data.destroyerRefresh && data.sourceHealerNumbers < 3)) {
+			else if (data.sourceHealerNumbers < 2 || (data.destroyerRefresh && data.sourceHealerNumbers < 4)) {
 			// else if (data.sourceHealerNumbers < 2) {
 				spawnSourceHealer(data.listSourceHealer, data.destroyerRefresh);
 			}
