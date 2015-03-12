@@ -17,8 +17,12 @@ module.exports = function (creep) {
 			creep.moveTo(harvester);
 		}
 		else {
-			creep.moveTo(Game.spawns.Spawn1);
+			var res = creep.moveTo(Game.spawns.Spawn1);
 			creep.transferEnergy(Game.spawns.Spawn1);
+
+			if (res === Game.ERR_NO_PATH) {
+				creep.say("I'm blocked :(");
+			}
 		}
 
 	}
