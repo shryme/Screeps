@@ -15,6 +15,10 @@ module.exports = function (creep) {
 				}
 			});
 			creep.moveTo(harvester);
+
+			var droppedEnergy = creep.pos.findClosest(Game.DROPPED_ENERGY);
+			if(droppedEnergy)
+				creep.pickup(droppedEnergy);
 		}
 		else {
 			var res = creep.moveTo(Game.spawns.Spawn1);
