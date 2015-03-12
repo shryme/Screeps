@@ -135,13 +135,13 @@ function spawnSourceDestroyer() {
 }
 
 function spawnSourceHarvester() {
-	var modules = [Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE];
+	var modules = [Game.MOVE, Game.WORK, Game.WORK, Game.WORK, Game.CARRY];
 	if (canSpawnUnit(modules))
 		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_harvester'});
 }
 
 function spawnSourceCarrier() {
-	var modules = [Game.CARRY, Game.CARRY, Game.CARRY, Game.MOVE, Game.MOVE];
+	var modules = [Game.MOVE, Game.CARRY, Game.CARRY, Game.CARRY, Game.MOVE];
 	if (canSpawnUnit(modules))
 		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_carrier'});
 }
