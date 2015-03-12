@@ -233,10 +233,13 @@ module.exports = {
 			else if (data.healerNumbers < 2 || data.needHealer === true) {
 				spawnWeakHealer();
 			}
+			if (data.guardNumbers < 4) {
+				spawnWeakGuard();
+			}
 			else if (data.sourceHarvesterNumbers < 2) {
 				spawnSourceHarvester();
 			}
-			else if (data.sourceCarrierNumbers < 4) {
+			else if (data.sourceCarrierNumbers < 8) {
 				spawnSourceCarrier();
 			}
 			else if (extNumbers > 0) {
