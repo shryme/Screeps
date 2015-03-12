@@ -8,7 +8,7 @@ module.exports = function (creep) {
 	function harvest(creep) {
 		var sourceKeeper = Game.spawns.Spawn1.memory.sourceKeeperPos;
 		var pos = Game.spawns.Spawn1.room.getPositionAt(sourceKeeper.x, sourceKeeper.y);
-		var source = pos.findClosest(Game.SOURCES_ACTIVE, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
+		var source = pos.findClosest(Game.SOURCES, {maxOps: 1000, ignoreDestructibleStructures: true, ignoreCreeps: true});
 
 		if (Game.spawns.Spawn1.memory.keeper_neutralized === true) {
 			creep.moveTo(source);
