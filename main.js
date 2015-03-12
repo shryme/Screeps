@@ -33,8 +33,12 @@ factoryData.listSourceHealer = new Array();
 
 function setStatusKeeper(spawn) {
 	var lair = spawn.pos.findClosest(Game.HOSTILE_STRUCTURES);
-	var target = lair.pos.findClosest(Game.HOSTILE_CREEPS);
+	var target;
 	
+	var targets = lair.pos.findInRange(Game.HOSTILE_CREEPS, 3);
+	if (targets)
+		target = lair.pos.findClosest(targets);
+
 	if ((target && target.hits > 100) || (lair.ticksToSpawn && lair.ticksToSpawn < 40))
 		Game.spawns.Spawn1.memory.keeper_neutralized = false;
 	else
