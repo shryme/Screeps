@@ -42,7 +42,7 @@ function setStatusKeeper(spawn) {
 	}
 	
 
-	if ((target && target.hits > 100) || (lair.ticksToSpawn && lair.ticksToSpawn < 40))
+	if ((target && target.hits > 100) || (lair && lair.ticksToSpawn && lair.ticksToSpawn < 40))
 		Game.spawns.Spawn1.memory.keeper_neutralized = false;
 	else
 		Game.spawns.Spawn1.memory.keeper_neutralized = true;
