@@ -135,7 +135,7 @@ function spawnSourceDestroyer() {
 }
 
 function spawnSourceHarvester() {
-	var modules = [Game.WORK, Game.CARRY, Game.MOVE, Game.CARRY, Game.MOVE];
+	var modules = [Game.WORK, Game.WORK, Game.WORK, Game.CARRY, Game.MOVE];
 	if (canSpawnUnit(modules))
 		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'source_harvester'});
 }
