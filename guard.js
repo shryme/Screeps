@@ -2,7 +2,10 @@
 module.exports = function (creep) {
 
 	//Find the closest target in the specified range
-	var targets = creep.pos.findInRange(Game.HOSTILE_CREEPS, 8);
+	var range = 8;
+	if (creep.ticksToLive < 200)
+		range = 30;
+	var targets = creep.pos.findInRange(Game.HOSTILE_CREEPS, range);
 	var target = creep.pos.findClosest(targets, {filter: function(object) {return object.owner.username !== 'Source Keeper'} });
 
 	//If guard have ranged attack, use it !
