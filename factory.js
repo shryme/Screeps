@@ -87,6 +87,12 @@ function spawnWeakHealer(targetRole) {
 		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'healer', targetRole: targetRole});
 }
 
+function spawnBigHealer() {
+	var modules = [Game.TOUGH, Game.TOUGH, Game.HEAL, Game.HEAL, Game.HEAL, Game.HEAL, Game.MOVE];
+	if (canSpawnUnit(modules))
+		Game.spawns.Spawn1.createCreep(modules, undefined, {role: 'healer'});
+}
+
 function spawnExtensionGuard(pieces) {
 	if (canSpawnUnit(pieces))
 		Game.spawns.Spawn1.createCreep(pieces, undefined, {role: 'guard'});
@@ -248,11 +254,15 @@ module.exports = {
 					pieces.push(Game.ATTACK);
 				spawnExtensionGuard(pieces);
 			}
+			else if (data.healerNumbers < 4) {
+				spawnBigHealer();
+			}
 			else if (data.healerNumbers >= 2 && data.guardNumbers < 10 && Game.spawns.Spawn1) {
 				spawnToughGuard();
 			}
 			else if (data.guardNumbers >= 10 && Game.spawns.Spawn1) {
-				spawnMediumGuard();
+				//spawnMediumGuard();
+				spawnToughGuard();
 			}
 
 
